@@ -1,21 +1,6 @@
-# Alongside Crypto Market Index v2
-
-Alongside Crypto Market Index (AMKT) is a fully backed market index, providing exposure to a market-cap weighted basket of assets, to be rebalanced quarterly.
-
-The next iteration of AMKT moves custody on-chain, relying on `Vault` to custody underlying assets, and on governance to submit accurate `Bounty` for the next set of underlying assets to rebalance.
-
----
-
-## Overview
-
-### System Relationship Diagram
-
-![Core System Relationship Diagram](https://raw.githubusercontent.com/Alongside-Finance/amkt-v2/main/misc/diagrams/system.png)
-_This diagram provides a high-level overview of the system and its core functions. While it aims to capture the key components and interactions, it does not encompass the full breadth and depth of the system's functionality._
-
 ### AMKT
 
-AMKT is an [Upgradeable](contracts/lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol), [Votable](contracts/lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/extensions/ERC20VotesUpgradeable.sol), ERC20 token on [Ethereum Mainnet](https://etherscan.io/token/0xf17a3fe536f8f7847f1385ec1bc967b2ca9cae8d). It can be issued by bringing a basket of underlying assets, and it can be redeemed to receive a basket of underlying assets, as defined by Issuance and Vault.
+AMKT is an [Upgradeable](contracts/lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol), [Votable](contracts/lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/extensions/ERC20VotesUpgradeable.sol), ERC20 token on [Ethereum Mainnet](https://etherscan.io/token/0xf17a3fe536f8f7847f1385ec1bc967b2ca9cae8d).
 
 ### Core
 
@@ -69,4 +54,28 @@ Additionally, [Halmos](https://github.com/a16z/halmos) is used for symbolic test
 - [DAO Forum](https://discuss.amktdao.com/)
 - [DAO Governance](https://tally.xyz/gov/amkt)
 
-##
+## **API DOCS**
+
+### Table of Contents
+
+### Installation Guide
+- [Prerequisites](#prerequisites)
+- [Step-by-Step Installation](#step-by-step-installation)
+
+### Core Contracts
+- [Vault](#vault)
+- [Issuance](#issuance)
+- [InvokeableBounty](#invokeablebounty)
+
+### Governance
+- [Overview](#governance)
+- [Responsibilities](#governance)
+- [Security Measures](#governance)
+
+### Testing
+- [Foundry Tests](#tests)
+- [Symbolic Testing](#tests)
+
+### Rebalance
+- [SDK](#rebalance)
+- [Proposal Process](#rebalance)
