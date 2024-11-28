@@ -9,6 +9,12 @@ This document outlines the recommended best practices for developing, deploying,
 #### Solidity Patterns
 
 ##### Safe Math Operations
+While Solidity 0.8.x includes built-in overflow checks, using SafeMath remains a best practice for:
+- Explicit intention documentation
+- Compatibility with older code
+- Additional safety features beyond basic overflow protection
+- Consistent arithmetic handling across different Solidity versions
+
 ```solidity
 contract SafeMathExample {
     using SafeMath for uint256;
@@ -21,6 +27,11 @@ contract SafeMathExample {
 ```
 
 ##### Check-Effects-Interactions Pattern
+This pattern is crucial for preventing reentrancy attacks. The order is important because:
+1. **Checks**: Validate all conditions first to fail fast and save gas
+2. **Effects**: Update internal state while still holding the transaction context
+3. **Interactions**: External calls go last to prevent malicious contract callbacks
+
 ```solidity
 contract CEIPattern {
     mapping(address => uint256) private balances;
@@ -42,6 +53,13 @@ contract CEIPattern {
 #### Code Organization
 
 ##### Module Structure
+Modular design provides several benefits:
+- **Separation of Concerns**: Each module handles one specific aspect
+- **Upgradability**: Modules can be upgraded independently
+- **Testing**: Easier to test isolated functionality
+- **Access Control**: Granular permissions per module
+- **Gas Optimization**: Users only interact with needed modules
+
 ```solidity
 // Core functionality
 contract AMKTCore {
@@ -61,8 +79,13 @@ contract AMKTGovernance is AMKTCore {
 ### Testing Guidelines
 
 #### Unit Testing
+Best practices for unit tests include:
+- One assertion per test when possible
+- Descriptive test names that indicate behavior
+- Setup/teardown in beforeEach/afterEach
+- Testing both success and failure cases
+- Mock external dependencies
 
-##### Test Structure
 ```typescript
 describe("AMKT Vault", () => {
     let vault: AMKTVault;
@@ -89,8 +112,13 @@ describe("AMKT Vault", () => {
 ```
 
 #### Integration Testing
+Fork testing is essential because:
+- Tests real protocol interactions
+- Catches integration issues early
+- Validates assumptions about external protocols
+- Ensures compatibility with mainnet state
+- Helps estimate real gas costs
 
-##### Fork Testing Example
 ```typescript
 describe("Integration Tests", () => {
     before(async () => {
@@ -114,8 +142,13 @@ describe("Integration Tests", () => {
 ### Documentation Standards
 
 #### Code Documentation
+High-quality documentation should:
+- Explain the "why" not just the "what"
+- Include security considerations
+- Document all parameters and return values
+- Specify units (e.g., wei vs ether)
+- Note any important state requirements
 
-##### Function Documentation
 ```solidity
 /// @notice Deposits tokens into the vault
 /// @dev Requires approval for token transfer
@@ -148,6 +181,12 @@ event Deposit(
 ### Deployment Process
 
 #### Deployment Checklist
+A thorough deployment process should include:
+- Multiple environment testing (testnet → staging → mainnet)
+- Gas optimization verification
+- Admin key security setup
+- Emergency procedures documentation
+- Monitoring system configuration
 
 ```typescript
 interface DeploymentChecklist {
@@ -196,6 +235,13 @@ interface DeployConfig {
 ### Monitoring and Maintenance
 
 #### Health Checks
+Comprehensive monitoring should track:
+- Contract state consistency
+- Balance reconciliation
+- Oracle data freshness
+- Gas price trends
+- Network conditions
+- User operation patterns
 
 ```typescript
 class HealthMonitor {
@@ -216,6 +262,12 @@ class HealthMonitor {
 ```
 
 #### Performance Optimization
+Key optimization strategies:
+- Batch operations when possible
+- Use events for off-chain tracking
+- Optimize storage layout
+- Cache frequently accessed values
+- Consider view function gas costs
 
 ```solidity
 contract GasOptimized {
@@ -236,6 +288,12 @@ contract GasOptimized {
 ### Upgrade Procedures
 
 #### Safe Upgrade Pattern
+Important upgrade considerations:
+- Storage layout compatibility
+- Function selector stability
+- State migration planning
+- Rollback procedures
+- User communication strategy
 
 ```solidity
 contract UpgradeableVault {
@@ -261,6 +319,12 @@ contract UpgradeableVault {
 ### Error Handling
 
 #### Error Recovery
+Error handling should:
+- Distinguish between recoverable and fatal errors
+- Implement circuit breakers where appropriate
+- Log detailed error information
+- Maintain system invariants
+- Have clear escalation paths
 
 ```typescript
 class ErrorHandler {
@@ -279,20 +343,24 @@ class ErrorHandler {
 
 ### Community Guidelines
 
+Community interaction best practices emphasize:
 1. **Code Contributions**
-   - Follow style guide
-   - Include tests
-   - Update documentation
-   - Sign commits
+   - Detailed PR descriptions
+   - Impact assessment
+   - Breaking change notification
+   - Benchmark comparisons
+   - Security considerations
 
 2. **Issue Reporting**
-   - Use issue templates
-   - Include reproduction steps
-   - Provide environment details
-   - Tag appropriately
+   - Clear reproduction steps
+   - Version information
+   - Related issues/PRs
+   - Expected vs actual behavior
+   - Impact assessment
 
 3. **Communication**
-   - Use designated channels
-   - Follow code of conduct
-   - Maintain professionalism
-   - Document decisions 
+   - Clear technical writing
+   - Regular updates
+   - Inclusive language
+   - Constructive feedback
+   - Knowledge sharing

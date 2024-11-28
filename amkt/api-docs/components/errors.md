@@ -17,6 +17,12 @@ error InsufficientBalance(
     uint256 available
 );
 ```
+**Common Scenarios**:
+- Withdrawal exceeds balance
+- Transfer amount too high
+- Redemption insufficient tokens
+- Staking more than owned
+- Fee payment shortfall
 
 ##### InvalidToken
 Thrown when attempting to interact with an unsupported token.
@@ -25,6 +31,12 @@ error InvalidToken(
     address token
 );
 ```
+**Typical Cases**:
+- Non-whitelisted token
+- Zero address provided
+- Deprecated token version
+- Blacklisted address
+- Non-compliant ERC20
 
 ##### MaxCapacityExceeded
 Thrown when a deposit would exceed the vault's maximum capacity.
@@ -34,6 +46,12 @@ error MaxCapacityExceeded(
     uint256 maximum
 );
 ```
+**Common Triggers**:
+- Large deposits
+- Mint operations
+- Rebalancing actions
+- Batch transfers
+- Inflation events
 
 #### Rebalance Errors
 
@@ -45,6 +63,12 @@ error InvalidBounty(
     string reason
 );
 ```
+**Validation Failures**:
+- Invalid signature
+- Incorrect parameters
+- Malformed data
+- Unauthorized source
+- Logic conflicts
 
 ##### ExpiredBounty
 Thrown when attempting to execute an expired bounty.
@@ -54,6 +78,12 @@ error ExpiredBounty(
     uint256 currentTime
 );
 ```
+**Time-Related Issues**:
+- Execution after deadline
+- Block timestamp conflicts
+- Network delays
+- Timing constraints
+- Grace period exceeded
 
 ##### SlippageExceeded
 Thrown when trade slippage exceeds allowed threshold.
@@ -64,6 +94,12 @@ error SlippageExceeded(
     uint256 received
 );
 ```
+**Market Conditions**:
+- High volatility
+- Low liquidity
+- Large trade impact
+- Price manipulation
+- Oracle delays
 
 #### Governance Errors
 
@@ -76,6 +112,12 @@ error UnauthorizedProposer(
     uint256 required
 );
 ```
+**Authorization Issues**:
+- Insufficient tokens
+- Delegation problems
+- Power threshold
+- Lock period
+- Voting rights
 
 ##### InvalidProposalState
 Thrown when attempting an action on a proposal in an invalid state.
@@ -86,6 +128,12 @@ error InvalidProposalState(
     uint8 requiredState
 );
 ```
+**State Conflicts**:
+- Premature execution
+- Double execution
+- Cancelled proposals
+- Queued status
+- Grace period
 
 ### Access Control Errors
 
@@ -97,6 +145,12 @@ error Unauthorized(
     bytes4 functionSelector
 );
 ```
+**Permission Issues**:
+- Role missing
+- Admin functions
+- Restricted operations
+- Time locks
+- Multi-sig requirements
 
 ##### InvalidMultisig
 Thrown when a multisig operation fails validation.
@@ -106,6 +160,12 @@ error InvalidMultisig(
     uint256 signaturesRequired
 );
 ```
+**Signature Problems**:
+- Insufficient signatures
+- Invalid signers
+- Duplicate signatures
+- Expired signatures
+- Wrong order
 
 ### Error Handling Examples
 

@@ -2,14 +2,19 @@
 
 ### Overview
 
-AMKT v2 emits various events across its smart contracts to enable tracking of important state changes and actions. These events are essential for indexers, monitoring tools, and frontend applications.
+AMKT v2's event system provides:
+- Real-time state change notifications
+- Historical data tracking
+- Integration points for external systems
+- Audit trail capabilities
+- Indexing support for dApps
 
 ### Core Events
 
 #### Vault Events
 
 ##### TokensDeposited
-Emitted when tokens are deposited into the vault.
+Emitted when tokens are added to the vault.
 ```solidity
 event TokensDeposited(
     address indexed depositor,
@@ -18,9 +23,15 @@ event TokensDeposited(
     uint256 indexed timestamp
 );
 ```
+**Use Cases**:
+- Track deposit volumes
+- Monitor user activity
+- Calculate TVL changes
+- Analyze token flows
+- Trigger notifications
 
 ##### TokensWithdrawn
-Emitted when tokens are withdrawn from the vault.
+Emitted during token withdrawal operations.
 ```solidity
 event TokensWithdrawn(
     address indexed withdrawer,
@@ -29,11 +40,17 @@ event TokensWithdrawn(
     uint256 indexed timestamp
 );
 ```
+**Applications**:
+- Monitor outflows
+- Track user exits
+- Calculate redemption rates
+- Risk assessment
+- Portfolio tracking
 
 #### Rebalance Events
 
 ##### RebalanceInitiated
-Emitted when a rebalance process begins.
+Signals the start of a rebalancing process.
 ```solidity
 event RebalanceInitiated(
     bytes32 indexed bountyHash,
@@ -41,9 +58,15 @@ event RebalanceInitiated(
     address initiator
 );
 ```
+**Monitoring Aspects**:
+- Track rebalance frequency
+- Measure completion times
+- Monitor initiator patterns
+- Analyze deadline settings
+- Gauge market impact
 
 ##### RebalanceCompleted
-Emitted when a rebalance is successfully executed.
+Marks successful completion of rebalancing.
 ```solidity
 event RebalanceCompleted(
     bytes32 indexed bountyHash,
@@ -51,11 +74,17 @@ event RebalanceCompleted(
     uint256 executionTime
 );
 ```
+**Analysis Points**:
+- Execution efficiency
+- Fulfiller performance
+- Time to completion
+- Success rates
+- Gas optimization
 
 #### Governance Events
 
 ##### ProposalCreated
-Emitted when a new governance proposal is created.
+Emitted when new governance proposals are submitted.
 ```solidity
 event ProposalCreated(
     uint256 indexed proposalId,
@@ -65,9 +94,15 @@ event ProposalCreated(
     uint256 endBlock
 );
 ```
+**Governance Tracking**:
+- Proposal activity
+- Proposer analysis
+- Voting periods
+- Community engagement
+- Governance trends
 
 ##### ProposalExecuted
-Emitted when a proposal is executed.
+Signals successful proposal execution.
 ```solidity
 event ProposalExecuted(
     uint256 indexed proposalId,
@@ -75,11 +110,17 @@ event ProposalExecuted(
     uint256 timestamp
 );
 ```
+**Implementation Metrics**:
+- Execution success rates
+- Time to execution
+- Executor patterns
+- Governance efficiency
+- Impact analysis
 
 ### Emergency Events
 
 ##### EmergencyPaused
-Emitted when emergency pause is activated.
+Indicates activation of emergency pause.
 ```solidity
 event EmergencyPaused(
     address indexed triggeredBy,
@@ -87,15 +128,27 @@ event EmergencyPaused(
     string reason
 );
 ```
+**Security Monitoring**:
+- Incident tracking
+- Response times
+- Risk patterns
+- System health
+- Recovery planning
 
 ##### EmergencyUnpaused
-Emitted when emergency pause is deactivated.
+Signals system resumption after pause.
 ```solidity
 event EmergencyUnpaused(
     address indexed triggeredBy,
     uint256 timestamp
 );
 ```
+**Recovery Metrics**:
+- Downtime duration
+- Resolution speed
+- System stability
+- Recovery patterns
+- Impact assessment
 
 ### Usage Examples
 
@@ -177,16 +230,22 @@ interface EventAggregator {
 ### Security Considerations
 
 1. **Event Verification**
-   - Always verify event signatures
-   - Check event parameters against expected ranges
-   - Validate emitting contract addresses
+   - Signature validation
+   - Parameter bounds checking
+   - Source contract verification
+   - Timestamp validation
+   - Data integrity checks
 
 2. **Reorg Handling**
-   - Implement reorg detection
-   - Store event status (pending/confirmed)
-   - Update state on chain reorganizations
+   - Chain reorganization detection
+   - Event confirmation tracking
+   - State reconciliation
+   - Data consistency
+   - Recovery procedures
 
 3. **Rate Limiting**
-   - Implement backoff strategies
-   - Cache frequently accessed events
-   - Batch event processing
+   - Request throttling
+   - Caching strategies
+   - Batch processing
+   - Resource management
+   - Performance optimization

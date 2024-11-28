@@ -2,24 +2,32 @@
 
 ### Overview
 
-AMKT v2 implements multiple layers of security measures to protect user funds and ensure system integrity. This document outlines key security considerations, best practices, and implementation guidelines.
+AMKT v2 implements multiple layers of security measures to protect user funds and ensure system integrity. The security architecture follows defense-in-depth principles:
+- Multiple independent authorization layers
+- Time-delayed operations for critical changes
+- Economic security through slippage controls
+- Automated monitoring and alerting systems
+- Emergency response capabilities
 
 ### Access Control
 
 #### Role-Based Permissions
+The system implements granular role-based access control (RBAC) to ensure precise permission management:
 
 ##### Core Roles
+Each role serves a specific purpose with carefully scoped permissions:
 ```solidity
 enum Role {
-    ADMIN,
-    OPERATOR,
-    FULFILLER,
-    EMERGENCY_MULTISIG,
-    GUARDIAN
+    ADMIN,      // System-wide configuration changes
+    OPERATOR,   // Day-to-day operations
+    FULFILLER,  // Rebalance execution
+    EMERGENCY_MULTISIG,  // Emergency interventions
+    GUARDIAN    // Circuit breaker control
 }
 ```
 
 ##### Implementation Example
+Secure role management with strict access controls:
 ```solidity
 contract AccessControl {
     mapping(address => mapping(Role => bool)) private roles;
@@ -41,10 +49,11 @@ contract AccessControl {
 #### Time Locks
 
 ##### Governance Delay
+Enforces mandatory waiting periods for critical operations:
 ```solidity
 contract TimelockController {
-    uint256 public constant MIN_DELAY = 2 days;
-    uint256 public constant MAX_DELAY = 30 days;
+    uint256 public constant MIN_DELAY = 2 days;    // Minimum safety window
+    uint256 public constant MAX_DELAY = 30 days;   // Maximum delay to prevent deadlocks
     
     mapping(bytes32 => uint256) public operationTimestamps;
     
@@ -65,10 +74,10 @@ contract TimelockController {
 ### Value Protection
 
 #### Slippage Control
-
+Protects against adverse price movements during trades:
 ```solidity
 contract SlippageProtection {
-    uint256 public constant MAX_SLIPPAGE_BPS = 100; // 1%
+    uint256 public constant MAX_SLIPPAGE_BPS = 100; // 1% maximum allowed slippage
     
     function validateSlippage(
         uint256 expected,
@@ -81,10 +90,10 @@ contract SlippageProtection {
 ```
 
 #### Circuit Breakers
-
+Automatically halts operations when suspicious activity is detected:
 ```solidity
 contract CircuitBreaker {
-    uint256 public constant TRADE_VOLUME_THRESHOLD = 1000000e18; // $1M
+    uint256 public constant TRADE_VOLUME_THRESHOLD = 1000000e18; // $1M threshold
     uint256 public constant COOL_DOWN_PERIOD = 1 hours;
     
     uint256 public lastBreakTime;
@@ -105,7 +114,7 @@ contract CircuitBreaker {
 ### Smart Contract Security
 
 #### Reentrancy Protection
-
+Guards against recursive call attacks:
 ```solidity
 contract ReentrancyGuard {
     uint256 private constant _NOT_ENTERED = 1;
@@ -122,7 +131,7 @@ contract ReentrancyGuard {
 ```
 
 #### Secure Token Transfers
-
+Ensures safe token operations with comprehensive checks:
 ```solidity
 contract SecureTransfers {
     function safeTransfer(

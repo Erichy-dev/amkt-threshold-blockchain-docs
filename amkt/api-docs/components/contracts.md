@@ -22,6 +22,12 @@ function virtualUnits(address token) external view returns (uint256)
   - `token`: ERC20 token address
 - **Returns**: Amount of tokens required (in base units)
 - **Access**: Public view
+- **Purpose**: Provides real-time token weightings for index composition
+- **Key Aspects**:
+  - Returns base units (e.g., wei for ETH)
+  - Used in issuance/redemption calculations
+  - Critical for maintaining index parity
+  - Updated during rebalancing
 
 ##### Asset Management
 ```solidity
@@ -38,6 +44,12 @@ function invokeERC20s(
   - `amounts`: Array of token amounts
 - **Access**: Only authorized addresses (Issuance & InvokeableBounty)
 - **Reverts**: If arrays have different lengths or transfers fail
+- **Security Features**:
+  - Multi-token batch processing
+  - Authorized access control
+  - Array length validation
+  - Failed transfer protection
+  - Gas optimization for bulk operations
 
 ###### Token Operations
 ```solidity
@@ -48,6 +60,12 @@ function invokeMint(address to, uint256 amount) external onlyIssuance
   - `to`: Recipient address
   - `amount`: Amount to mint
 - **Access**: Only Issuance contract
+- **Implementation Details**:
+  - Restricted to Issuance contract
+  - Maintains supply control
+  - Emits tracking events
+  - Validates recipient address
+  - Ensures sufficient capacity
 
 ```solidity
 function invokeBurn(address from, uint256 amount) external onlyIssuance
@@ -57,6 +75,12 @@ function invokeBurn(address from, uint256 amount) external onlyIssuance
   - `from`: Address to burn from
   - `amount`: Amount to burn
 - **Access**: Only Issuance contract
+- **Critical Aspects**:
+  - Balance verification
+  - Authorization checks
+  - Supply management
+  - Event emission
+  - State consistency
 
 ###### Fee Management
 ```solidity
@@ -66,6 +90,12 @@ function tryInflation() external returns (uint256 mintedAmount)
 - **Returns**: Amount of tokens minted
 - **Access**: Only fee recipient
 - **Events Emitted**: `InflationMinted(uint256 amount)`
+- **Mechanism**:
+  - Calculates accrued fees
+  - Updates virtual units
+  - Mints new tokens
+  - Distributes to recipient
+  - Maintains economic model
 
 ###### Emergency Controls
 ```solidity
@@ -76,6 +106,12 @@ function setEmergency(bool state) external onlyEmergencyMultisig
   - `state`: Boolean emergency state
 - **Access**: Only emergency multisig
 - **Events Emitted**: `EmergencySet(bool state)`
+- **Safety Features**:
+  - Multisig control
+  - Immediate effect
+  - Selective function pausing
+  - Event logging
+  - Recovery procedures
 
 ### Issuance Contract {#issuance-contract}
 **Location**: `contracts/src/invoke/Issuance.sol`
@@ -93,6 +129,13 @@ function issue(uint256 amktAmount, address recipient) external returns (uint256[
 - **Returns**: Array of token amounts required
 - **Access**: Public
 - **Events Emitted**: `Issue(address indexed recipient, uint256 amount)`
+- **Process Flow**:
+  - Calculates token requirements
+  - Validates balances
+  - Transfers underlying assets
+  - Mints AMKT tokens
+  - Updates state
+  - Emits events
 
 ##### Token Redemption
 ```solidity
@@ -105,6 +148,13 @@ function redeem(uint256 amktAmount, address recipient) external returns (uint256
 - **Returns**: Array of token amounts returned
 - **Access**: Public
 - **Events Emitted**: `Redeem(address indexed redeemer, uint256 amount)`
+- **Execution Steps**:
+  - Verifies AMKT balance
+  - Calculates output amounts
+  - Burns AMKT tokens
+  - Transfers underlying assets
+  - Updates protocol state
+  - Generates events
 
 ### InvokeableBounty Contract {#invokeable-bounty-contract}
 **Location**: `contracts/src/invoke/Bounty.sol`
@@ -125,6 +175,13 @@ function fulfillBounty(
 - **Returns**: Success boolean
 - **Access**: Only authorized fulfiller
 - **Events Emitted**: `BountyFulfilled(bytes32 bountyHash)`
+- **Verification Process**:
+  - Validates Merkle proof
+  - Checks deadline
+  - Verifies token addresses
+  - Confirms amounts
+  - Updates virtual units
+  - Executes transfers
 
 ##### Bounty Struct
 ```solidity
@@ -139,6 +196,12 @@ struct Bounty {
 - **nominals**: Array of new token amounts
 - **deadline**: Timestamp when bounty expires
 - **root**: Merkle root for validation
+- **Design Considerations**:
+  - Gas efficiency
+  - Data integrity
+  - Upgrade compatibility
+  - Security verification
+  - State consistency
 
 ### Events {#events}
 
@@ -148,18 +211,36 @@ event InflationMinted(uint256 amount);
 event EmergencySet(bool state);
 event VirtualUnitsSet(address[] tokens, uint256[] amounts);
 ```
+- **Usage**:
+  - Off-chain tracking
+  - State verification
+  - Analytics support
+  - User notifications
+  - Audit trail
 
 #### Issuance Events
 ```solidity
 event Issue(address indexed recipient, uint256 amount);
 event Redeem(address indexed redeemer, uint256 amount);
 ```
+- **Monitoring**:
+  - Transaction tracking
+  - Volume analysis
+  - User activity
+  - System health
+  - Market dynamics
 
 #### Bounty Events
 ```solidity
 event BountyFulfilled(bytes32 indexed bountyHash);
 event BountySet(bytes32 indexed bountyHash);
 ```
+- **Applications**:
+  - Rebalance tracking
+  - Performance monitoring
+  - Historical analysis
+  - System verification
+  - Automation triggers
 
 ### Modifiers
 

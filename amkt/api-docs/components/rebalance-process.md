@@ -2,9 +2,15 @@
 
 ### Overview
 
-The rebalance system allows for periodic updates to the index composition through a secure, governance-controlled process using the SDK and smart contracts.
+The rebalance system allows for periodic updates to the index composition through a secure, governance-controlled process using the SDK and smart contracts. This process ensures:
+- Transparent and verifiable index updates
+- Protection against price manipulation
+- Efficient execution through bounty mechanisms
+- Multi-layer security checks
 
 ### Rebalance SDK
+
+The SDK provides programmatic access to rebalancing functionality, enabling automated calculations and proposal generation.
 
 #### Installation
 ```bash
@@ -15,28 +21,31 @@ cargo build
 #### Core Components
 
 ##### 1. Bounty Structure
+The bounty system incentivizes efficient index rebalancing while maintaining security:
 ```rust
 pub struct Bounty {
-    tokens: Vec<Address>,    // List of token addresses
-    nominals: Vec<u256>,     // New token quantities
-    deadline: u256,          // Timestamp for bounty expiration
-    root: [u8; 32]          // Merkle root for validation
+    tokens: Vec<Address>,    // List of token addresses to rebalance
+    nominals: Vec<u256>,     // New token quantities after rebalance
+    deadline: u256,          // Timestamp for bounty expiration (prevents stale execution)
+    root: [u8; 32]          // Merkle root for cryptographic validation
 }
 ```
 
 #### 2. Rebalance Configuration
+Configuration parameters that define the rebalance constraints and targets:
 ```rust
 pub struct RebalanceConfig {
-    target_weights: HashMap<Address, Decimal>,  // Target portfolio weights
-    current_holdings: HashMap<Address, u256>,   // Current token holdings
-    price_data: HashMap<Address, Decimal>,      // Current token prices
-    slippage_tolerance: Decimal                 // Maximum allowed slippage
+    target_weights: HashMap<Address, Decimal>,  // Desired portfolio allocation
+    current_holdings: HashMap<Address, u256>,   // Existing token balances
+    price_data: HashMap<Address, Decimal>,      // Current market prices
+    slippage_tolerance: Decimal                 // Maximum acceptable price impact
 }
 ```
 
 ## Smart Contract Interface
 
 ### InvokeableBounty Contract
+The core contract managing rebalance execution with built-in security checks.
 
 #### Setting a New Bounty
 ```solidity
@@ -53,7 +62,13 @@ function fulfillBounty(
 
 ## Rebalance Process
 
+The rebalance workflow consists of three critical phases:
+
 ### 1. Preparation Phase
+Involves careful calculation of required trades while considering:
+- Market depth and liquidity
+- Price impact
+- Gas optimization
 ```rust
 // Example SDK usage for preparing a rebalance
 let rebalance = RebalanceCalculator::new(config)
@@ -62,8 +77,9 @@ let rebalance = RebalanceCalculator::new(config)
 ```
 
 ### 2. Governance Proposal
+Ensures community oversight and validation of proposed changes:
 ```solidity
-// Submit bounty through governance
+// Submit bounty through governance with proper checks
 function proposeBountyUpdate(
     address[] calldata tokens,
     uint256[] calldata nominals,
@@ -73,8 +89,9 @@ function proposeBountyUpdate(
 ```
 
 ### 3. Execution
+Controlled execution by authorized fulfillers with verification:
 ```solidity
-// After governance approval, fulfiller executes
+// After governance approval, fulfiller executes with proof validation
 function executeBounty(
     Bounty memory bounty,
     bytes32[] memory proof
@@ -152,19 +169,19 @@ function executeRebalance(
 ## Security Considerations
 
 1. **Validation Checks**
-   - Merkle proof verification
-   - Deadline enforcement
-   - Slippage protection
+   - Merkle proof verification ensures data integrity
+   - Deadline enforcement prevents stale execution
+   - Slippage protection guards against price manipulation
 
 2. **Access Control**
-   - Governance-controlled bounty setting
-   - Restricted fulfiller access
-   - Timelock delays
+   - Governance-controlled bounty setting prevents unauthorized changes
+   - Restricted fulfiller access ensures proper execution
+   - Timelock delays allow community review
 
 3. **Economic Security**
-   - Maximum weight changes
-   - Price impact limits
-   - Token whitelist
+   - Maximum weight changes prevent dramatic shifts
+   - Price impact limits protect against market manipulation
+   - Token whitelist ensures index quality
 
 ## Best Practices
 

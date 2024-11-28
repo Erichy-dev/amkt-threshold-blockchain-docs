@@ -2,7 +2,10 @@
 
 ### Overview {#governance-overview}
 
-The AMKT governance system enables decentralized control over the index through a combination of token voting, time-locked execution, and multi-sig security measures.
+The AMKT governance system enables decentralized control over the index through a combination of token voting, time-locked execution, and multi-sig security measures. This multi-layered approach ensures:
+- Transparent and democratic decision-making through token-weighted voting
+- Protection against malicious proposals via timelock delays
+- Emergency safeguards through multi-signature controls
 
 ### Core Components {#governance-components}
 
@@ -43,11 +46,13 @@ function cancel(bytes32 id) external;
 
 #### Governance Contract {#governance-contract}
 
+The governance contract serves as the primary interface for proposal creation and voting. It implements a time-based voting system with the following carefully balanced parameters:
+
 ##### Voting Parameters
-- Voting Delay: 1 block
-- Voting Period: 3 days
-- Proposal Threshold: 1% of total supply
-- Quorum: 4% of total supply
+- Voting Delay: 1 block (~12 seconds) to ensure proposal visibility
+- Voting Period: 3 days to allow sufficient community participation
+- Proposal Threshold: 1% of total supply to prevent spam while maintaining accessibility
+- Quorum: 4% of total supply to ensure meaningful consensus
 
 #### Key Functions
 
@@ -70,7 +75,15 @@ function castVoteWithReason(
 
 ### Governance Actions {#governance-actions}
 
+Governance can execute various system-critical operations, each requiring proper authorization and timelock delays:
+
 #### Rebalance Process {#rebalance-process}
+
+The rebalancing mechanism allows for index composition updates through a structured process:
+1. Community proposal of new weights
+2. Token holder voting
+3. Timelock delay
+4. Multisig execution
 
 1. **Submit Bounty**
 ```solidity
@@ -103,12 +116,17 @@ function revokeRole(bytes32 role, address account) external;
 
 ### Security Measures {#security-measures}
 
+The system implements multiple security layers to protect against various attack vectors:
+
 #### Governance Multisig {#governance-multisig}
 
+A group of trusted entities that provide an additional security layer with:
+
 ##### Capabilities
-- Execute timelocked transactions
-- Cancel malicious proposals
-- Emergency pause functionality
+- Execute timelocked transactions after community approval
+- Cancel malicious proposals before execution
+- Emergency pause functionality for critical situations
+- Ability to upgrade contracts through careful deliberation
 
 ```solidity
 function setEmergency(bool state) external onlyEmergencyMultisig;
@@ -116,10 +134,13 @@ function setEmergency(bool state) external onlyEmergencyMultisig;
 
 ### Participation Guide {#participation-guide}
 
+A comprehensive guide to engaging with AMKT governance:
+
 #### 1. Token Voting
-Users can participate in governance with AMKT tokens through:
-- Direct voting on Tally
-- Delegation to other addresses
+Users can participate through multiple mechanisms:
+- Direct voting on Tally (recommended for most users)
+- Delegation to expert voters or DAOs
+- Self-custody voting through direct contract interaction
 
 ```solidity
 function delegate(address delegatee) external;
