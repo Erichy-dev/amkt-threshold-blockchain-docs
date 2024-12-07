@@ -1,0 +1,1425 @@
+<!DOCTYPE html><html><head>
+      <title>threshold-usd</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////Users/mac/.cursor/extensions/shd101wyy.markdown-preview-enhanced-0.8.15/crossnote/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="threshold-usd-decentralized-borrowing-protocol">Threshold USD: Decentralized Borrowing Protocol </h1>
+<p>Threshold USD is a modified fork of Liquity Protocol built to be self-sustained through a PCV<br>
+("Protocol Controlled Value"). It allows ETH and tBTC holders to obtain maximum liquidity against<br>
+their collateral without paying interest. After locking up ETH or tBTC as collateral in a smart contract and<br>
+creating an individual position called a "vault", the user can get instant liquidity by minting thUSD,<br>
+a USD-pegged stablecoin. Each vault is required to be collateralized at a minimum of 110%. Any<br>
+owner of thUSD can redeem their stablecoins for the underlying collateral at any time. The redemption<br>
+mechanism along with algorithmically adjusted fees guarantee a minimum stablecoin value of USD 1.</p>
+<p>A liquidation mechanism based on incentivized stability deposits and a redistribution<br>
+cycle from riskier to safer vaults provides stability at a much lower collateral ratio than current<br>
+systems. Stability is maintained via economically-driven user interactions and arbitrage, rather<br>
+than by active governance or monetary interventions.</p>
+<h2 id="more-information">More information </h2>
+<ul>
+<li>Visit <a href="https://www.thresholdusd.org">thresholdusd.org</a> to find out more and join the discussion.</li>
+<li>Visit our page on <a href="https://immunefi.com/bounty/thusd/">Immunefi</a> for information on our ongoing bounty program.</li>
+</ul>
+<h2 id="threshold-usd-system-summary">Threshold USD System Summary </h2>
+<ul>
+<li><a href="#threshold-usd-decentralized-borrowing-protocol">Threshold USD: Decentralized Borrowing Protocol</a>
+<ul>
+<li><a href="#more-information">More information</a></li>
+<li><a href="#threshold-usd-system-summary">Threshold USD System Summary</a></li>
+<li><a href="#threshold-usd-overview">Threshold USD Overview</a></li>
+<li><a href="#liquidation-and-the-stability-pool">Liquidation and the Stability Pool</a>
+<ul>
+<li><a href="#liquidation-gas-costs">Liquidation gas costs</a></li>
+<li><a href="#liquidation-logic">Liquidation Logic</a>
+<ul>
+<li><a href="#liquidations-in-normal-mode-tcr--150">Liquidations in Normal Mode: TCR &gt;= 150%</a></li>
+<li><a href="#liquidations-in-recovery-mode-tcr--150">Liquidations in Recovery Mode: TCR &lt; 150%</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#gains-from-liquidations">Gains From Liquidations</a></li>
+<li><a href="#thusd-token-redemption">thUSD Token Redemption</a>
+<ul>
+<li><a href="#partial-redemption">Partial redemption</a></li>
+<li><a href="#full-redemption">Full redemption</a></li>
+<li><a href="#redemptions-create-a-price-floor">Redemptions create a price floor</a></li>
+</ul>
+</li>
+<li><a href="#recovery-mode">Recovery Mode</a></li>
+<li><a href="#project-structure">Project Structure</a>
+<ul>
+<li><a href="#directories">Directories</a></li>
+<li><a href="#branches">Branches</a></li>
+</ul>
+</li>
+<li><a href="#core-system-architecture">Core System Architecture</a>
+<ul>
+<li><a href="#core-smart-contracts">Core Smart Contracts</a></li>
+<li><a href="#data-and-value-silo-contracts">Data and Value Silo Contracts</a></li>
+<li><a href="#contract-interfaces">Contract Interfaces</a></li>
+<li><a href="#pricefeed-and-oracle">PriceFeed and Oracle</a></li>
+<li><a href="#pricefeed-logic">PriceFeed Logic</a></li>
+<li><a href="#testnet-pricefeed-and-pricefeed-tests">Testnet PriceFeed and PriceFeed tests</a></li>
+<li><a href="#pricefeed-limitations-and-known-issues">PriceFeed limitations and known issues</a></li>
+<li><a href="#keeping-a-sorted-list-of-vaults-ordered-by-icr">Keeping a sorted list of Vaults ordered by ICR</a></li>
+<li><a href="#flow-of-collateral-in-threshold-usd">Flow of Collateral in Threshold USD</a></li>
+<li><a href="#flow-of-thusd-tokens-in-threshold-usd">Flow of thUSD tokens in Threshold USD</a></li>
+</ul>
+</li>
+<li><a href="#expected-user-behaviors">Expected User Behaviors</a></li>
+<li><a href="#contract-ownership-and-function-permissions">Contract Ownership and Function Permissions</a></li>
+<li><a href="#deployment-to-a-development-blockchain">Deployment to a Development Blockchain</a></li>
+<li><a href="#running-tests">Running Tests</a>
+<ul>
+<li><a href="#brownie-tests">Brownie Tests</a></li>
+<li><a href="#openethereum">OpenEthereum</a></li>
+<li><a href="#coverage">Coverage</a></li>
+</ul>
+</li>
+<li><a href="#system-quantities---units-and-representation">System Quantities - Units and Representation</a>
+<ul>
+<li><a href="#integer-representations-of-decimals">Integer representations of decimals</a></li>
+</ul>
+</li>
+<li><a href="#public-data">Public Data</a></li>
+<li><a href="#public-user-facing-functions">Public User-Facing Functions</a>
+<ul>
+<li><a href="#borrower-vault-operations---borroweroperationssol">Borrower (Vault) Operations - <code>BorrowerOperations.sol</code></a></li>
+<li><a href="#trovemanager-functions---trovemanagersol">TroveManager Functions - <code>TroveManager.sol</code></a></li>
+<li><a href="#hint-helper-functions---hinthelperssol">Hint Helper Functions - <code>HintHelpers.sol</code></a></li>
+<li><a href="#stability-pool-functions---stabilitypoolsol">Stability Pool Functions - <code>StabilityPool.sol</code></a></li>
+<li><a href="#thusd-token-thusdtokensol">thUSD token <code>THUSDToken.sol</code></a></li>
+</ul>
+</li>
+<li><a href="#governance-onlyowner-functions">Governance OnlyOwner Functions</a>
+<ul>
+<li><a href="#pcv---pcvsol">PCV - <code>PCV.sol</code></a></li>
+<li><a href="#pricefeed---pricefeedsol">PriceFeed - <code>PriceFeed.sol</code></a></li>
+<li><a href="#thusdtoken---thusdtokensol">THUSDToken - <code>THUSDToken.sol</code></a></li>
+</ul>
+</li>
+<li><a href="#supplying-hints-to-vault-operations">Supplying Hints to Vault operations</a>
+<ul>
+<li><a href="#example-borrower-operations-with-hints">Example Borrower Operations with Hints</a>
+<ul>
+<li><a href="#opening-a-vault">Opening a vault</a></li>
+<li><a href="#adjusting-a-vault">Adjusting a Vault</a></li>
+</ul>
+</li>
+<li><a href="#hints-for-redeemcollateral">Hints for <code>redeemCollateral</code></a>
+<ul>
+<li><a href="#first-redemption-hint">First redemption hint</a></li>
+<li><a href="#partial-redemption-hints">Partial redemption hints</a></li>
+<li><a href="#example-redemption-with-hints">Example Redemption with hints</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#gas-compensation">Gas compensation</a>
+<ul>
+<li><a href="#gas-compensation-schedule">Gas compensation schedule</a></li>
+<li><a href="#liquidation">Liquidation</a></li>
+<li><a href="#gas-compensation-and-redemptions">Gas compensation and redemptions</a></li>
+<li><a href="#gas-compensation-helper-functions">Gas compensation helper functions</a></li>
+</ul>
+</li>
+<li><a href="#the-stability-pool">The Stability Pool</a>
+<ul>
+<li><a href="#mixed-liquidations-offset-and-redistribution">Mixed liquidations: offset and redistribution</a></li>
+<li><a href="#stability-pool-deposit-losses-and-collateral-gains---implementation">Stability Pool deposit losses and collateral gains - implementation</a></li>
+<li><a href="#stability-pool-example">Stability Pool example</a></li>
+<li><a href="#stability-pool-implementation">Stability Pool implementation</a></li>
+<li><a href="#how-deposits-and-collateral-gains-are-tracked">How deposits and collateral gains are tracked</a></li>
+</ul>
+</li>
+<li><a href="#threshold-usd-system-fees">Threshold USD System Fees</a>
+<ul>
+<li><a href="#redemption-fee">Redemption Fee</a></li>
+<li><a href="#issuance-fee">Issuance fee</a></li>
+<li><a href="#fee-schedule">Fee Schedule</a></li>
+<li><a href="#intuition-behind-fees">Intuition behind fees</a></li>
+<li><a href="#fee-decay-implementation">Fee decay Implementation</a></li>
+</ul>
+</li>
+<li><a href="#redistributions-and-corrected-stakes">Redistributions and Corrected Stakes</a>
+<ul>
+<li><a href="#corrected-stake-solution">Corrected Stake Solution</a></li>
+</ul>
+</li>
+<li><a href="#math-proofs">Math Proofs</a></li>
+<li><a href="#definitions">Definitions</a></li>
+<li><a href="#development">Development</a>
+<ul>
+<li><a href="#prerequisites">Prerequisites</a>
+<ul>
+<li><a href="#making-node-gyp-work">Making node-gyp work</a></li>
+</ul>
+</li>
+<li><a href="#clone--install">Clone &amp; Install</a></li>
+<li><a href="#top-level-scripts">Top-level scripts</a>
+<ul>
+<li><a href="#run-all-tests">Run all tests</a></li>
+<li><a href="#deploy-contracts-to-a-testnet">Deploy contracts to a testnet</a></li>
+<li><a href="#start-a-local-blockchain-and-deploy-the-contracts">Start a local blockchain and deploy the contracts</a></li>
+<li><a href="#start-dev-frontend-in-development-mode">Start dev-frontend in development mode</a></li>
+<li><a href="#start-dev-frontend-in-demo-mode">Start dev-frontend in demo mode</a></li>
+<li><a href="#build-dev-frontend-for-production">Build dev-frontend for production</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#known-issues">Known Issues</a>
+<ul>
+<li><a href="#temporary-and-slightly-inaccurate-tcr-calculation-within-batchliquidatetroves-in-recovery-mode">Temporary and slightly inaccurate TCR calculation within <code>batchLiquidateTroves</code> in Recovery Mode.</a></li>
+<li><a href="#sortedtroves-edge-cases---top-and-bottom-of-the-sorted-list">SortedTroves edge cases - top and bottom of the sorted list</a></li>
+<li><a href="#front-running-issues">Front-running issues</a>
+<ul>
+<li><a href="#loss-evasion-by-front-running-stability-pool-depositors">Loss evasion by front-running Stability Pool depositors</a></li>
+<li><a href="#reaping-liquidation-gains-on-the-fly">Reaping liquidation gains on the fly</a></li>
+<li><a href="#front-running-and-changing-the-order-of-vaults-as-a-dos-attack">Front-running and changing the order of vaults as a DoS attack</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#disclaimer">Disclaimer</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="threshold-usd-overview">Threshold USD Overview </h2>
+<p>Threshold USD is a collateralized debt platform. Users can lock up collateral, and issue stablecoin tokens (thUSD) to their own Ethereum address, and subsequently transfer those tokens to any other Ethereum address. The individual collateralized debt positions are called Vaults.</p>
+<p>The stablecoin tokens are economically geared towards maintaining value of 1 thUSD = $1 USD, due to the following properties:</p>
+<ol>
+<li>
+<p>The system is designed to always be over-collateralized - the dollar value of the locked collateral exceeds the dollar value of the issued stablecoins</p>
+</li>
+<li>
+<p>The stablecoins are fully redeemable - users can always swap <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mi>w</mi><mi>o</mi><mi>r</mi><mi>t</mi><mi>h</mi><mi>o</mi><mi>f</mi><mi>t</mi><mi>h</mi><mi>U</mi><mi>S</mi><mi>D</mi><mi>f</mi><mi>o</mi><mi>r</mi></mrow><annotation encoding="application/x-tex">x worth of thUSD for</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">x</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord mathnormal" style="margin-right:0.02778em;">or</span><span class="mord mathnormal">t</span><span class="mord mathnormal">h</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal">t</span><span class="mord mathnormal">h</span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal" style="margin-right:0.02778em;">or</span></span></span></span>x worth of collateral (minus fees), directly with the system.</p>
+</li>
+<li>
+<p>The system algorithmically controls the generation of thUSD through a variable issuance fee.</p>
+</li>
+</ol>
+<p>After opening a Vault with some collateral, users may issue ("borrow") tokens such that the collateralization ratio of their Vault remains above 110%. A user with $1000 worth of collateral in a Vault can issue up to 909.09 thUSD.</p>
+<p>The tokens are freely exchangeable - anyone with an Ethereum address can send or receive thUSD tokens, whether they have an open Vault or not. The tokens are burned upon repayment of a Vault's debt.</p>
+<p>The Threshold USD system regularly updates the collateral:USD price via a decentralized data feed. When a Vault falls below a minimum collateralization ratio (MCR) of 110%, it is considered under-collateralized, and is vulnerable to liquidation.</p>
+<h2 id="liquidation-and-the-stability-pool">Liquidation and the Stability Pool </h2>
+<p>Threshold USD utilizes a two-step liquidation mechanism in the following order of priority:</p>
+<ol>
+<li>
+<p>Offset under-collateralized Vaults against the Stability Pool containing thUSD tokens</p>
+</li>
+<li>
+<p>Redistribute under-collateralized Vaults to other borrowers if the Stability Pool is emptied</p>
+</li>
+</ol>
+<p>Threshold USD primarily uses the thUSD tokens in its Stability Pool to absorb the under-collateralized debt, i.e. to repay the liquidated borrower's liability.</p>
+<p>Any user may deposit thUSD tokens to the Stability Pool. This allows them to earn the collateral from the liquidated Vault. When a liquidation occurs, the liquidated debt is cancelled with the same amount of thUSD in the Pool (which is burned as a result), and the liquidated collateral is proportionally distributed to depositors.</p>
+<p>Stability Pool depositors can expect to earn net gains from liquidations, as in most cases, the value of the liquidated collateral will be greater than the value of the cancelled debt (since a liquidated Vault will likely have an ICR just slightly below 110%).</p>
+<p>If the liquidated debt is higher than the amount of thUSD in the Stability Pool, the system tries to cancel as much debt as possible with the tokens in the Stability Pool, and then redistributes the remaining liquidated collateral and debt across all active Vaults.</p>
+<p>Anyone may call the public <code>liquidateTroves()</code> function, which will check for under-collateralized Vaults, and liquidate them. Alternatively they can call <code>batchLiquidateTroves()</code> with a custom list of vault addresses to attempt to liquidate.</p>
+<h3 id="liquidation-gas-costs">Liquidation gas costs </h3>
+<p>Currently, mass liquidations performed via the above functions cost 60-65k gas per vault. Thus the system can liquidate up to a maximum of 95-105 vaults in a single transaction.</p>
+<h3 id="liquidation-logic">Liquidation Logic </h3>
+<p>The precise behavior of liquidations depends on the ICR of the Vault being liquidated and global system conditions:  the total collateralization ratio (TCR) of the system, the size of the Stability Pool, etc.</p>
+<p>Here is the liquidation logic for a single Vault in Normal Mode and Recovery Mode.  <code>SP.THUSD</code> represents the thUSD in the Stability Pool.</p>
+<h4 id="liquidations-in-normal-mode-tcr--150">Liquidations in Normal Mode: TCR &gt;= 150% </h4>
+<table>
+<thead>
+<tr>
+<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Condition</th>
+<th>Liquidation behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ICR &lt; MCR &amp; SP.THUSD &gt;= vault.debt</td>
+<td>thUSD in the StabilityPool equal to the Vault's debt is offset with the Vault's debt. The Vault's collateral is shared between depositors.</td>
+</tr>
+<tr>
+<td>ICR &lt; MCR &amp; SP.THUSD &lt; vault.debt</td>
+<td>The total StabilityPool thUSD is offset with an equal amount of debt from the Vault.  A fraction of the Vault's collateral (equal to the ratio of its offset debt to its entire debt) is shared between depositors. The remaining debt and collateral (minus ETH gas compensation) is redistributed to active Vaults</td>
+</tr>
+<tr>
+<td>ICR &lt; MCR &amp; SP.THUSD = 0</td>
+<td>Redistribute all debt and collateral (minus ETH gas compensation) to active Vaults.</td>
+</tr>
+<tr>
+<td>ICR  &gt;= MCR</td>
+<td>Do nothing.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="liquidations-in-recovery-mode-tcr--150">Liquidations in Recovery Mode: TCR &lt; 150% </h4>
+<table>
+<thead>
+<tr>
+<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Condition</th>
+<th>Liquidation behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ICR &lt;=100%</td>
+<td>Redistribute all debt and collateral (minus ETH gas compensation) to active Vaults.</td>
+</tr>
+<tr>
+<td>100% &lt; ICR &lt; MCR &amp; SP.THUSD &gt; vault.debt</td>
+<td>thUSD in the StabilityPool equal to the Vault's debt is offset with the Vault's debt. The Vault's collateral (minus ETH gas compensation) is shared between depsitors.</td>
+</tr>
+<tr>
+<td>100% &lt; ICR &lt; MCR &amp; SP.THUSD &lt; vault.debt</td>
+<td>The total StabilityPool thUSD is offset with an equal amount of debt from the Vault.  A fraction of the Vault's collateral (equal to the ratio of its offset debt to its entire debt) is shared between depositors. The remaining debt and collateral (minus ETH gas compensation) is redistributed to active vaults</td>
+</tr>
+<tr>
+<td>MCR &lt;= ICR &lt; TCR &amp; SP.THUSD &gt;= vault.debt</td>
+<td>The Pool thUSD is offset with an equal amount of debt from the Vault. A fraction of collateral with dollar value equal to <code>1.1 * debt</code> is shared between depositors. Nothing is redistributed to other active Vaults. Since it's ICR was &gt; 1.1, the Vault has a collateral remainder, which is sent to the <code>CollSurplusPool</code> and is claimable by the borrower. The Vault is closed.</td>
+</tr>
+<tr>
+<td>MCR &lt;= ICR &lt; TCR &amp; SP.THUSD  &lt; vault.debt</td>
+<td>Do nothing.</td>
+</tr>
+<tr>
+<td>ICR &gt;= TCR</td>
+<td>Do nothing.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="gains-from-liquidations">Gains From Liquidations </h2>
+<p>Stability Pool depositors gain collateral over time, as liquidated debt is cancelled with their deposit. When they withdraw all or part of their deposited tokens, or top up their deposit, the system sends them their accumulated collateral gains.</p>
+<p>Similarly, a Vault's accumulated gains from liquidations are automatically applied to the Vault when the owner performs any operation - e.g. adding/withdrawing collateral, or issuing/repaying thUSD.</p>
+<h2 id="thusd-token-redemption">thUSD Token Redemption </h2>
+<p>Any thUSD holder (whether or not they have an active Vault) may redeem their thUSD directly with the system. Their thUSD is exchanged for collateral, at face value: redeeming x thUSD tokens returns $x worth of collateral (minus a <a href="#redemption-fee">redemption fee</a>).</p>
+<p>When thUSD is redeemed for collateral, the system cancels the thUSD with debt from Vaults, and the collateral is drawn from their collateral.</p>
+<p>In order to fulfill the redemption request, Vaults are redeemed from in ascending order of their collateralization ratio.</p>
+<p>A redemption sequence of <code>n</code> steps will <strong>fully</strong> redeem from up to <code>n-1</code> Vaults, and, and <strong>partially</strong> redeems from up to 1 Vault, which is always the last Vault in the redemption sequence.</p>
+<p>Redemptions are blocked when TCR &lt; 110% (there is no need to restrict ICR &lt; TCR). At that TCR redemptions would likely be unprofitable, as thUSD is probably trading above $1 if the system has crashed that badly, but it could be a way for an attacker with a lot of thUSD to lower the TCR even further.</p>
+<p>Note that redemptions are disabled during the first 14 days of operation since deployment of the Threshold USD protocol to protect the monetary system in its infancy.</p>
+<h3 id="partial-redemption">Partial redemption </h3>
+<p>Most redemption transactions will include a partial redemption, since the amount redeemed is unlikely to perfectly match the total debt of a series of Vaults.</p>
+<p>The partially redeemed Vault is re-inserted into the sorted list of Vaults, and remains active, with reduced collateral and debt.</p>
+<h3 id="full-redemption">Full redemption </h3>
+<p>A Vault is defined as “fully redeemed from” when the redemption has caused (debt-200) of its debt to absorb (debt-200) thUSD. Then, its 200 thUSD Liquidation Reserve is cancelled with its remaining 200 debt: the Liquidation Reserve is burned from the gas address, and the 200 debt is zero’d.</p>
+<p>Before closing, we must handle the Vault’s <strong>collateral surplus</strong>: that is, the excess collateral remaining after redemption, due to its initial over-collateralization.</p>
+<p>This collateral surplus is sent to the <code>CollSurplusPool</code>, and the borrower can reclaim it later. The Vault is then fully closed.</p>
+<h3 id="redemptions-create-a-price-floor">Redemptions create a price floor </h3>
+<p>Economically, the redemption mechanism creates a hard price floor for thUSD, ensuring that the market price stays at or near to $1 USD.</p>
+<h2 id="recovery-mode">Recovery Mode </h2>
+<p>Recovery Mode kicks in when the total collateralization ratio (TCR) of the system falls below 150%.</p>
+<p>During Recovery Mode, liquidation conditions are relaxed, and the system blocks borrower transactions that would further decrease the TCR. New thUSD may only be issued by adjusting existing Vaults in a way that improves their ICR, or by opening a new Vault with an ICR of &gt;=150%. In general, if an existing Vault's adjustment reduces its ICR, the transaction is only executed if the resulting TCR is above 150%</p>
+<p>Recovery Mode is structured to incentivize borrowers to behave in ways that promptly raise the TCR back above 150%, and to incentivize thUSD holders to replenish the Stability Pool.</p>
+<p>Economically, Recovery Mode is designed to encourage collateral top-ups and debt repayments, and also itself acts as a self-negating deterrent: the possibility of it occurring actually guides the system away from ever reaching it.</p>
+<h2 id="project-structure">Project Structure </h2>
+<h3 id="directories">Directories </h3>
+<ul>
+<li><code>papers</code> - Whitepaper and math papers: a proof of Threshold USD's vault order invariant, and a derivation of the scalable Stability Pool staking formula</li>
+<li><code>packages/dev-frontend/</code> - Threshold USD Developer UI: a fully functional React app used for interfacing with the smart contracts during development</li>
+<li><code>packages/fuzzer/</code> - A very simple, purpose-built tool based on Threshold USD middleware for randomly interacting with the system</li>
+<li><code>packages/lib-base/</code> - Common interfaces and classes shared by the other <code>lib-</code> packages</li>
+<li><code>packages/lib-ethers/</code> - <a href="https://github.com/ethers-io/ethers.js/">Ethers</a>-based middleware that can read Threshold USD state and send transactions</li>
+<li><code>packages/lib-react/</code> - Components and hooks that React-based apps can use to view Threshold USD contract state</li>
+<li><code>packages/lib-subgraph/</code> - <a href="https://github.com/apollographql/apollo-client">Apollo Client</a>-based middleware backed by the Threshold USD subgraph that can read Threshold USD state</li>
+<li><code>packages/providers/</code> - Subclassed Ethers providers used by the frontend</li>
+<li><code>packages/subgraph/</code> - <a href="https://thegraph.com">Subgraph</a> for querying Threshold USD state as well as historical data like transaction history</li>
+<li><code>packages/contracts/</code> - The backend development folder, contains the Hardhat project, contracts and tests</li>
+<li><code>packages/contracts/contracts/</code> - The core back end smart contracts written in Solidity</li>
+<li><code>packages/contracts/test/</code> - JS test suite for the system. Tests run in Mocha/Chai</li>
+<li><code>packages/contracts/tests/</code> - Python test suite for the system. Tests run in Brownie</li>
+<li><code>packages/contracts/gasTest/</code> - Non-assertive tests that return gas costs for Threshold USD operations under various scenarios</li>
+<li><code>packages/contracts/fuzzTests/</code> - Echidna tests, and naive "random operation" tests</li>
+<li><code>packages/contracts/migrations/</code> - contains Hardhat script for deploying the smart contracts to the blockchain</li>
+<li><code>packages/contracts/utils/</code> - external Hardhat and node scripts - deployment helpers, gas calculators, etc</li>
+</ul>
+<p>Backend development is done in the Hardhat framework, and allows Threshold USD to be deployed on the Hardhat EVM network for fast compilation and test execution.</p>
+<h3 id="branches">Branches </h3>
+<p>As of 18/01/2021, the current working branch is <code>main</code>. <code>master</code> is out of date.</p>
+<h2 id="core-system-architecture">Core System Architecture </h2>
+<p>The core Threshold USD system consists of several smart contracts, which are deployable to the Ethereum blockchain.</p>
+<p>All application logic and data is contained in these contracts - there is no need for a separate database or back end logic running on a web server. In effect, the Ethereum network is itself the Threshold USD back end. As such, all balances and contract data are public.</p>
+<p>The system has no admin key or human governance. Once deployed, it is fully automated, decentralized and no user holds any special privileges in or control over the system.</p>
+<p>The three main contracts - <code>BorrowerOperations.sol</code>, <code>TroveManager.sol</code> and <code>StabilityPool.sol</code> - hold the user-facing public functions, and contain most of the internal system logic. Together they control Vault state updates and movements of collateral and thUSD tokens around the system.</p>
+<h3 id="core-smart-contracts">Core Smart Contracts </h3>
+<p><code>BorrowerOperations.sol</code>&nbsp;- contains the basic operations by which borrowers interact with their Vault: Vault creation, collateral top-up / withdrawal, stablecoin issuance and repayment. It also sends issuance fees to the <code>PCV</code> contract. BorrowerOperations functions call in to TroveManager, telling it to update Vault state, where necessary. BorrowerOperations functions also call in to the various Pools, telling them to move collateral/Tokens between Pools or between Pool &lt;&gt; user, where necessary.</p>
+<p><code>TroveManager.sol</code>&nbsp;- contains functionality for liquidations and redemptions. It sends redemption fees to the <code>PCV</code> contract. Also contains the state of each Vault - i.e. a record of the Vault’s collateral and debt. TroveManager does not hold value (i.e. collateral / other tokens). TroveManager functions call in to the various Pools to tell them to move collateral/tokens between Pools, where necessary.</p>
+<p><code>LiquityBase.sol</code> - Both TroveManager and BorrowerOperations inherit from the parent contract LiquityBase, which contains global constants and some common functions.</p>
+<p><code>StabilityPool.sol</code> - contains functionality for Stability Pool operations: making deposits, and withdrawing compounded deposits and accumulated collateral gains. Holds the thUSD Stability Pool deposits, and the collateral gains for depositors, from liquidations.</p>
+<p><code>THUSDToken.sol</code> - the stablecoin token contract, which implements the ERC20 fungible token standard in conjunction with EIP-2612 and a mechanism that blocks (accidental) transfers to addresses like the StabilityPool and address(0) that are not supposed to receive funds through direct transfers. The contract mints, burns and transfers thUSD tokens.</p>
+<p><code>SortedTroves.sol</code>&nbsp;- a doubly linked list that stores addresses of Vault owners, sorted by their individual collateralization ratio (ICR). It inserts and re-inserts Vaults at the correct position, based on their ICR.</p>
+<p><code>PriceFeed.sol</code>&nbsp;- Contains functionality for obtaining the current collateral:USD price, which the system uses for calculating collateralization ratios.</p>
+<p><code>HintHelpers.sol</code> - Helper contract, containing the read-only functionality for calculation of accurate hints to be supplied to borrower operations and redemptions.</p>
+<h3 id="data-and-value-silo-contracts">Data and Value Silo Contracts </h3>
+<p>Along with <code>StabilityPool.sol</code>, these contracts hold collateral and/or tokens for their respective parts of the system, and contain minimal logic:</p>
+<p><code>ActivePool.sol</code> -&nbsp;holds the total collateral balance and records the total stablecoin debt of the active Vaults.</p>
+<p><code>DefaultPool.sol</code> -&nbsp;holds the total collateral balance and records the total stablecoin debt of the liquidated Vaults that are pending redistribution to active Vaults. If a Vault has pending ether/debt “rewards” in the DefaultPool, then they will be applied to the Vault when it next undergoes a borrower operation, a redemption, or a liquidation.</p>
+<p><code>CollSurplusPool.sol</code> - holds the collateral surplus from Vaults that have been fully redeemed from as well as from Vaults with an ICR &gt; MCR that were liquidated in Recovery Mode. Sends the surplus back to the owning borrower, when told to do so by <code>BorrowerOperations.sol</code>.</p>
+<p><code>GasPool.sol</code> - holds the total thUSD liquidation reserves. thUSD is moved into the <code>GasPool</code> when a Vault is opened, and moved out when a Vault is liquidated or closed.</p>
+<h3 id="contract-interfaces">Contract Interfaces </h3>
+<p><code>ITroveManager.sol</code>, <code>IPool.sol</code> etc. These provide specification for a contract’s functions, without implementation. They are similar to interfaces in Java or C#.</p>
+<h3 id="pricefeed-and-oracle">PriceFeed and Oracle </h3>
+<p>Threshold USD functions that require the most current collateral:USD price data fetch the price dynamically, as needed, via the core <code>PriceFeed.sol</code> contract using the Chainlink collateral:USD reference contract as its primary and Tellor's collateral:USD price feed as its secondary (fallback) data source. PriceFeed is stateful, i.e. it records the last good price that may come from either of the two sources based on the contract's current state.</p>
+<p>The fallback logic distinguishes 3 different failure modes for Chainlink and 2 failure modes for Tellor:</p>
+<ul>
+<li><code>Frozen</code> (for both oracles): last price update more than 4 hours ago</li>
+<li><code>Broken</code> (for both oracles): response call reverted, invalid timeStamp that is either 0 or in the future, or reported price is non-positive (Chainlink) or zero (Tellor). Chainlink is considered broken if either the response for the latest round <em>or</em> the response for the round before the latest fails one of these conditions.</li>
+<li><code>PriceChangeAboveMax</code> (Chainlink only): higher than 50% deviation between two consecutive price updates</li>
+</ul>
+<p>There is also a return condition <code>bothOraclesLiveAndUnbrokenAndSimilarPrice</code> which is a function returning true if both oracles are live and not broken, and the percentual difference between the two reported prices is below 5%.</p>
+<p>The current <code>PriceFeed.sol</code> contract has an external <code>fetchPrice()</code> function that is called by core Threshold USD functions which require a current collateral:USD price.  <code>fetchPrice()</code> calls each oracle's proxy, asserts on the responses, and converts returned prices to 18 digits.</p>
+<h3 id="pricefeed-logic">PriceFeed Logic </h3>
+<p>The PriceFeed contract fetches the current price and previous price from Chainlink and changes its state (called <code>Status</code>) based on certain conditions.</p>
+<p><strong>Initial PriceFeed state:</strong> <code>chainlinkWorking</code>. The initial system state that is maintained as long as Chainlink is working properly, i.e. neither broken nor frozen nor exceeding the maximum price change threshold between two consecutive rounds. PriceFeed then obeys the logic found in this table:</p>
+<p><a href="https://docs.google.com/spreadsheets/d/18fdtTUoqgmsK3Mb6LBO-6na0oK-Y9LWBqnPCJRp5Hsg/edit?usp=sharing">https://docs.google.com/spreadsheets/d/18fdtTUoqgmsK3Mb6LBO-6na0oK-Y9LWBqnPCJRp5Hsg/edit?usp=sharing</a></p>
+<h3 id="testnet-pricefeed-and-pricefeed-tests">Testnet PriceFeed and PriceFeed tests </h3>
+<p>The <code>PriceFeedTestnet.sol</code> is a mock PriceFeed for testnet and general back end testing purposes, with no oracle connection. It contains a manual price setter, <code>setPrice()</code>, and a getter, <code>getPrice()</code>, which returns the latest stored price.</p>
+<p>The mainnet PriceFeed is tested in <code>test/PriceFeedTest.js</code>, using a mock Chainlink aggregator and a mock TellorMaster contract.</p>
+<h3 id="pricefeed-limitations-and-known-issues">PriceFeed limitations and known issues </h3>
+<p>The purpose of the PriceFeed is to be at least as good as an immutable PriceFeed that relies purely on Chainlink, while also having some resilience in case of Chainlink failure / timeout, and chance of recovery.</p>
+<p>The PriceFeed logic consists of automatic on-chain decision-making for obtaining fallback price data from Tellor, and if possible, for returning to Chainlink if/when it recovers.</p>
+<p>The PriceFeed logic is complex, and although we would prefer simplicity, it does allow the system a chance of switching to an accurate price source in case of a Chainlink failure or timeout, and also the possibility of returning to an honest Chainlink price after it has failed and recovered.</p>
+<p>We believe the benefit of the fallback logic is worth the complexity, given that our system is entirely immutable - if we had no fallback logic and Chainlink were to be hacked or permanently fail, Threshold USD would become permanently unusable anyway.</p>
+<p><strong>Chainlink Decimals</strong>: the <code>PriceFeed</code> checks for and uses the latest <code>decimals</code> value reported by the Chainlink aggregator in order to calculate the Chainlink price at 18-digit precision, as needed by Threshold USD.  <code>PriceFeed</code> does not assume a value for decimals and can handle the case where Chainlink change their decimal value.</p>
+<p>However, the check <code>chainlinkIsBroken</code> uses both the current response from the latest round and the response previous round. Since <code>decimals</code> is not attached to round data, Threshold USD has no way of knowing whether decimals has changed between the current round and the previous round, so we assume it is the same. Threshold USD assumes the current return value of decimals() applies to both current round <code>i</code> and previous round <code>i-1</code>.</p>
+<p>This means that a decimal change that coincides with a Threshold USD price fetch could cause Threshold USD to assert that the Chainlink price has deviated too much, and fall back to Tellor. There is nothing we can do about this. We hope/expect Chainlink to never change their <code>decimals()</code> return value (currently 8), and if a hack/technical error causes Chainlink's decimals to change, Threshold USD may fall back to Tellor.</p>
+<p>To summarize the Chainlink decimals issue:</p>
+<ul>
+<li>Threshold USD can handle the case where Chainlink decimals changes across <em>two consecutive rounds <code>i</code> and <code>i-1</code> which are not used in the same Threshold USD price fetch</em></li>
+<li>If Threshold USD fetches the price at round <code>i</code>, it will not know if Chainlink decimals changed across round <code>i-1</code> to round <code>i</code>, and the consequent price scaling distortion may cause Threshold USD to fall back to Tellor</li>
+<li>Threshold USD will always calculate the correct current price at 18-digit precision assuming the current return value of <code>decimals()</code> is correct (i.e. is the value used by the nodes).</li>
+</ul>
+<p><strong>Tellor Decimals</strong>: Tellor uses 6 decimal precision for their ETHUSD price as determined by a social consensus of Tellor miners/data providers, and shown on Tellor's price feed page. Their decimals value is not offered in their on-chain contracts.  We rely on the continued social consensus around 6 decimals for their ETHUSD price feed. Tellor have informed us that if there was demand for an ETHUSD price at different precision, they would simply create a new <code>requestId</code>, and make no attempt to alter the social consensus around the precision of the current ETHUSD <code>requestId</code> (1) used by Threshold USD.</p>
+<h3 id="keeping-a-sorted-list-of-vaults-ordered-by-icr">Keeping a sorted list of Vaults ordered by ICR </h3>
+<p>Threshold USD relies on a particular data structure: a sorted doubly-linked list of Vaults that remains ordered by individual collateralization ratio (ICR), i.e. the amount of collateral (in USD) divided by the amount of debt (in thUSD).</p>
+<p>This ordered list is critical for gas-efficient redemption sequences and for the <code>liquidateTroves</code> sequence, both of which target Vaults in ascending order of ICR.</p>
+<p>The sorted doubly-linked list is found in <code>SortedTroves.sol</code>.</p>
+<p>Nodes map to active Vaults in the system - the ID property is the address of a vault owner. The list accepts positional hints for efficient O(1) insertion - please see the <a href="#supplying-hints-to-cdp-operations">hints</a> section for more details.</p>
+<p>ICRs are computed dynamically at runtime, and not stored on the node. This is because ICRs of active Vaults change dynamically, when:</p>
+<ul>
+<li>The collateral:USD price varies, altering the USD of the collateral of every Vault</li>
+<li>A liquidation that redistributes collateral and debt to active Vaults occurs</li>
+</ul>
+<p>The list relies on the fact that a collateral and debt redistribution due to a liquidation preserves the ordering of all active Vaults (though it does decrease the ICR of each active Vault above the MCR).</p>
+<p>The fact that ordering is maintained as redistributions occur, is not immediately obvious: please see the <a href="https://github.com/threshold-usd/dev/blob/main/papers">mathematical proof</a> which shows that this holds in Threshold USD.</p>
+<p>A node inserted based on current ICR will maintain the correct position, relative to its peers, as liquidation gains accumulate, as long as its raw collateral and debt have not changed.</p>
+<p>Nodes also remain sorted as the collateral:USD price varies, since price fluctuations change the collateral value of each Vault by the same proportion.</p>
+<p>Thus, nodes need only be re-inserted to the sorted list upon a Vault operation - when the owner adds or removes collateral or debt to their position.</p>
+<h3 id="flow-of-collateral-in-threshold-usd">Flow of Collateral in Threshold USD </h3>
+<p>Collateral in the system lives in three Pools: the ActivePool, the DefaultPool and the StabilityPool. When an operation is made, collateral is transferred in one of three ways:</p>
+<ul>
+<li>From a user to a Pool</li>
+<li>From a Pool to a user</li>
+<li>From one Pool to another Pool</li>
+</ul>
+<p>Collateral is recorded on an <em>individual</em> level, but stored in <em>aggregate</em> in a Pool. An active Vault with collateral and debt has a struct in the TroveManager that stores its ether collateral value in a uint, but its actual collateral is in the balance of the ActivePool contract.</p>
+<p>Likewise, the StabilityPool holds the total accumulated collateral gains from liquidations for all depositors.</p>
+<p><strong>Borrower Operations</strong></p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Collateral quantity</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>openTrove</td>
+<td>msg.value</td>
+<td>msg.sender-&gt;BorrowerOperations-&gt;ActivePool</td>
+</tr>
+<tr>
+<td>addColl</td>
+<td>msg.value</td>
+<td>msg.sender-&gt;BorrowerOperations-&gt;ActivePool</td>
+</tr>
+<tr>
+<td>withdrawColl</td>
+<td>_collWithdrawal parameter</td>
+<td>ActivePool-&gt;msg.sender</td>
+</tr>
+<tr>
+<td>adjustTrove: adding collateral</td>
+<td>msg.value</td>
+<td>msg.sender-&gt;BorrowerOperations-&gt;ActivePool</td>
+</tr>
+<tr>
+<td>adjustTrove: withdrawing collateral</td>
+<td>_collWithdrawal parameter</td>
+<td>ActivePool-&gt;msg.sender</td>
+</tr>
+<tr>
+<td>closeTrove</td>
+<td>All remaining</td>
+<td>ActivePool-&gt;msg.sender</td>
+</tr>
+<tr>
+<td>claimCollateral</td>
+<td>CollSurplusPool.balance[msg.sender]</td>
+<td>CollSurplusPool-&gt;msg.sender</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Vault Manager</strong></p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Collateral quantity</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>liquidate (offset)</td>
+<td>collateral to be offset</td>
+<td>ActivePool-&gt;StabilityPool</td>
+</tr>
+<tr>
+<td>liquidate (redistribution)</td>
+<td>collateral to be redistributed</td>
+<td>ActivePool-&gt;DefaultPool</td>
+</tr>
+<tr>
+<td>liquidateTroves (offset)</td>
+<td>collateral to be offset</td>
+<td>ActivePool-&gt;StabilityPool</td>
+</tr>
+<tr>
+<td>liquidateTroves (redistribution)</td>
+<td>collateral to be redistributed</td>
+<td>ActivePool-&gt;DefaultPool</td>
+</tr>
+<tr>
+<td>batchLiquidateTroves (offset)</td>
+<td>collateral to be offset</td>
+<td>ActivePool-&gt;StabilityPool</td>
+</tr>
+<tr>
+<td>batchLiquidateTroves (redistribution).</td>
+<td>collateral to be redistributed</td>
+<td>ActivePool-&gt;DefaultPool</td>
+</tr>
+<tr>
+<td>redeemCollateral</td>
+<td>collateral to be swapped with redeemer</td>
+<td>ActivePool-&gt;msg.sender</td>
+</tr>
+<tr>
+<td>redeemCollateral</td>
+<td>redemption fee</td>
+<td>ActivePool-&gt;PCV</td>
+</tr>
+<tr>
+<td>redeemCollateral</td>
+<td>vault's collateral surplus</td>
+<td>ActivePool-&gt;CollSurplusPool</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Stability Pool</strong></p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Collateral quantity</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>provideToSP</td>
+<td>depositor's accumulated collateral gain</td>
+<td>StabilityPool -&gt; msg.sender</td>
+</tr>
+<tr>
+<td>withdrawFromSP</td>
+<td>depositor's accumulated collateral gain</td>
+<td>StabilityPool -&gt; msg.sender</td>
+</tr>
+<tr>
+<td>withdrawETHGainToTrove</td>
+<td>depositor's accumulated collateral gain</td>
+<td>StabilityPool -&gt; BorrowerOperations -&gt; ActivePool</td>
+</tr>
+</tbody>
+</table>
+<h3 id="flow-of-thusd-tokens-in-threshold-usd">Flow of thUSD tokens in Threshold USD </h3>
+<p>When a user issues debt from their Vault, thUSD tokens are minted to their own address, and a debt is recorded on the Vault. Conversely, when they repay their Vault’s thUSD debt, thUSD is burned from their address, and the debt on their Vault is reduced.</p>
+<p>Redemptions burn thUSD from the redeemer’s balance, and reduce the debt of the Vault redeemed against.</p>
+<p>Liquidations that involve a Stability Pool offset burn tokens from the Stability Pool’s balance, and reduce the thUSD debt of the liquidated Vault.</p>
+<p>The only time thUSD is transferred to/from a Threshold USD contract, is when a user deposits thUSD to, or withdraws thUSD from, the StabilityPool.</p>
+<p><strong>Borrower Operations</strong></p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>thUSD Quantity</th>
+<th>ERC20 Operation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>openTrove</td>
+<td>Drawn thUSD</td>
+<td>thUSD._mint(msg.sender, _THUSDAmount)</td>
+</tr>
+<tr>
+<td></td>
+<td>Issuance fee</td>
+<td>thUSD._mint(PCV,  THUSDFee)</td>
+</tr>
+<tr>
+<td>withdrawTHUSD</td>
+<td>Drawn thUSD</td>
+<td>thUSD._mint(msg.sender, _THUSDAmount)</td>
+</tr>
+<tr>
+<td></td>
+<td>Issuance fee</td>
+<td>thUSD._mint(PCV,  THUSDFee)</td>
+</tr>
+<tr>
+<td>repayTHUSD</td>
+<td>Repaid thUSD</td>
+<td>thUSD._burn(msg.sender, _THUSDAmount)</td>
+</tr>
+<tr>
+<td>adjustTrove: withdrawing thUSD</td>
+<td>Drawn thUSD</td>
+<td>thUSD._mint(msg.sender, _THUSDAmount)</td>
+</tr>
+<tr>
+<td></td>
+<td>Issuance fee</td>
+<td>thUSD._mint(PCV,  THUSDFee)</td>
+</tr>
+<tr>
+<td>adjustTrove: repaying thUSD</td>
+<td>Repaid thUSD</td>
+<td>thUSD._burn(msg.sender, _THUSDAmount)</td>
+</tr>
+<tr>
+<td>closeTrove</td>
+<td>Repaid thUSD</td>
+<td>thUSD._burn(msg.sender, _THUSDAmount)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Trove Manager</strong></p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>thUSD Quantity</th>
+<th>ERC20 Operation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>liquidate (offset)</td>
+<td>thUSD to offset with debt</td>
+<td>thUSD._burn(stabilityPoolAddress, _debtToOffset);</td>
+</tr>
+<tr>
+<td>liquidateTroves (offset)</td>
+<td>thUSD to offset with debt</td>
+<td>thUSD._burn(stabilityPoolAddress, _debtToOffset);</td>
+</tr>
+<tr>
+<td>batchLiquidateTroves (offset)</td>
+<td>thUSD to offset with debt</td>
+<td>thUSD._burn(stabilityPoolAddress, _debtToOffset);</td>
+</tr>
+<tr>
+<td>redeemCollateral</td>
+<td>thUSD to redeem</td>
+<td>thUSD._burn(msg.sender, _THUSD)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Stability Pool</strong></p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>thUSD Quantity</th>
+<th>ERC20 Operation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>provideToSP</td>
+<td>deposit / top-up</td>
+<td>thUSD._transfer(msg.sender, stabilityPoolAddress, _amount);</td>
+</tr>
+<tr>
+<td>withdrawFromSP</td>
+<td>withdrawal</td>
+<td>thUSD._transfer(stabilityPoolAddress, msg.sender, _amount);</td>
+</tr>
+</tbody>
+</table>
+<h2 id="expected-user-behaviors">Expected User Behaviors </h2>
+<p>Generally, borrowers call functions that trigger Vault operations on their own Vault. Stability Pool users (who may or may not also be borrowers) call functions that trigger Stability Pool operations, such as depositing or withdrawing tokens to/from the Stability Pool.</p>
+<p>Anyone may call the public liquidation functions, and attempt to liquidate one or several Vaults.</p>
+<p>thUSD token holders may also redeem their tokens, and swap an amount of tokens 1-for-1 in value (minus fees) with collateral.</p>
+<h2 id="contract-ownership-and-function-permissions">Contract Ownership and Function Permissions </h2>
+<p>All the core smart contracts inherit from the OpenZeppelin <code>Ownable.sol</code> contract template. As such all contracts have a single owning address, which is the deploying address. The contract's ownership is renounced either upon deployment, or immediately after its address setter has been called, connecting it to the rest of the core Threshold USD system.</p>
+<p>Several public and external functions have modifiers such as <code>requireCallerIsTroveManager</code>, <code>requireCallerIsActivePool</code>, etc - ensuring they can only be called by the respective permitted contract.</p>
+<h2 id="deployment-to-a-development-blockchain">Deployment to a Development Blockchain </h2>
+<p>The Hardhat migrations script and deployment helpers in <code>utils/deploymentHelpers.js</code> deploy all contracts, and connect all contracts to their dependency contracts, by setting the necessary deployed addresses.</p>
+<p>The project is deployed on the Sepolia testnet.</p>
+<h2 id="running-tests">Running Tests </h2>
+<p>Run all tests with <code>npx hardhat test</code>, or run a specific test with <code>npx hardhat test ./test/contractTest.js</code></p>
+<p>Tests are run against the Hardhat EVM.</p>
+<h3 id="brownie-tests">Brownie Tests </h3>
+<p>There are some special tests that are using Brownie framework.</p>
+<p>To test, install brownie with:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>python3 -m pip install --user pipx
+python3 -m pipx ensurepath
+
+pipx install eth-brownie
+</code></pre><p>and add numpy with:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>pipx inject eth-brownie numpy
+</code></pre><p>Add OpenZeppelin package:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>brownie pm install OpenZeppelin/openzeppelin-contracts@3.3.0
+</code></pre><p>Run, from <code>packages/contracts/</code>:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>brownie test -s
+</code></pre><h3 id="openethereum">OpenEthereum </h3>
+<p>Add the local node as a <code>live</code> network at <code>~/.brownie/network-config.yaml</code>:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>(...)
+      - name: Local Openethereum
+        chainid: 17
+        id: openethereum
+        host: http://localhost:8545
+</code></pre><p>Make sure state is cleaned up first:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>rm -Rf build/deployments/*
+</code></pre><p>Start Openthereum node from this repo’s root with:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>yarn start-dev-chain:openethereum
+</code></pre><p>Then, again from <code>packages/contracts/</code>, run it with:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>brownie test -s --network openethereum
+</code></pre><p>To stop the Openethereum node, you can do it with:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>yarn stop-dev-chain
+</code></pre><h3 id="coverage">Coverage </h3>
+<p>To check test coverage you can run:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>yarn coverage
+</code></pre><p>You can see the coverage status at mainnet deployment.</p>
+<h2 id="system-quantities---units-and-representation">System Quantities - Units and Representation </h2>
+<h3 id="integer-representations-of-decimals">Integer representations of decimals </h3>
+<p>Several ratios and the collateral:USD price are integer representations of decimals, to 18 digits of precision. For example:</p>
+<table>
+<thead>
+<tr>
+<th><strong>uint representation of decimal</strong></th>
+<th><strong>Number</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1100000000000000000</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td>200000000000000000000</td>
+<td>200</td>
+</tr>
+<tr>
+<td>1000000000000000000</td>
+<td>1</td>
+</tr>
+<tr>
+<td>5432100000000000000</td>
+<td>5.4321</td>
+</tr>
+<tr>
+<td>34560000000</td>
+<td>0.00000003456</td>
+</tr>
+<tr>
+<td>370000000000000000000</td>
+<td>370</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1e-18</td>
+</tr>
+</tbody>
+</table>
+<p>etc.</p>
+<h2 id="public-data">Public Data </h2>
+<p>All data structures with the ‘public’ visibility specifier are ‘gettable’, with getters automatically generated by the compiler. Simply call <code>TroveManager::MCR()</code> to get the MCR, etc.</p>
+<h2 id="public-user-facing-functions">Public User-Facing Functions </h2>
+<h3 id="borrower-vault-operations---borroweroperationssol">Borrower (Vault) Operations - <code>BorrowerOperations.sol</code> </h3>
+<p><code>openTrove(uint _maxFeePercentage, uint _THUSDAmount, address _upperHint, address _lowerHint)</code>: payable function that creates a Vault for the caller with the requested debt, and the collateral received. Successful execution is conditional mainly on the resulting collateralization ratio which must exceed the minimum (110% in Normal Mode, 150% in Recovery Mode). In addition to the requested debt, extra debt is issued to pay the issuance fee, and cover the gas compensation. The borrower has to provide a <code>_maxFeePercentage</code> that he/she is willing to accept in case of a fee slippage, i.e. when a redemption transaction is processed first, driving up the issuance fee.</p>
+<p><code>addColl(address _upperHint, address _lowerHint))</code>: payable function that adds the received collateral to the caller's active Vault.</p>
+<p><code>withdrawColl(uint _amount, address _upperHint, address _lowerHint)</code>: withdraws <code>_amount</code> of collateral from the caller’s Vault. Executes only if the user has an active Vault, the withdrawal would not pull the user’s Vault below the minimum collateralization ratio, and the resulting total collateralization ratio of the system is above 150%.</p>
+<p><code>function withdrawTHUSD(uint _maxFeePercentage, uint _THUSDAmount, address _upperHint, address _lowerHint)</code>: issues <code>_amount</code> of thUSD from the caller’s Vault to the caller. Executes only if the Vault's collateralization ratio would remain above the minimum, and the resulting total collateralization ratio is above 150%. The borrower has to provide a <code>_maxFeePercentage</code> that he/she is willing to accept in case of a fee slippage, i.e. when a redemption transaction is processed first, driving up the issuance fee.</p>
+<p><code>repayTHUSD(uint _amount, address _upperHint, address _lowerHint)</code>: repay <code>_amount</code> of thUSD to the caller’s Vault, subject to leaving 50 debt in the Vault (which corresponds to the 50 thUSD gas compensation).</p>
+<p><code>_adjustTrove(address _borrower, uint _collWithdrawal, uint _debtChange, bool _isDebtIncrease, address _upperHint, address _lowerHint, uint _maxFeePercentage)</code>: enables a borrower to simultaneously change both their collateral and debt, subject to all the restrictions that apply to individual increases/decreases of each quantity with the following particularity: if the adjustment reduces the collateralization ratio of the Vault, the function only executes if the resulting total collateralization ratio is above 150%. The borrower has to provide a <code>_maxFeePercentage</code> that he/she is willing to accept in case of a fee slippage, i.e. when a redemption transaction is processed first, driving up the issuance fee. The parameter is ignored if the debt is not increased with the transaction.</p>
+<p><code>closeTrove()</code>: allows a borrower to repay all debt, withdraw all their collateral, and close their Vault. Requires the borrower have a thUSD balance sufficient to repay their vault's debt, excluding gas compensation - i.e. <code>(debt - 50)</code> thUSD.</p>
+<p><code>claimCollateral(address _user)</code>: when a borrower’s Vault has been fully redeemed from and closed, or liquidated in Recovery Mode with a collateralization ratio above 110%, this function allows the borrower to claim their collateral surplus that remains in the system (collateral - debt upon redemption; collateral - 110% of the debt upon liquidation).</p>
+<h3 id="trovemanager-functions---trovemanagersol">TroveManager Functions - <code>TroveManager.sol</code> </h3>
+<p><code>liquidate(address _borrower)</code>: callable by anyone, attempts to liquidate the Vault of <code>_user</code>. Executes successfully if <code>_user</code>’s Vault meets the conditions for liquidation (e.g. in Normal Mode, it liquidates if the Vault's ICR &lt; the system MCR).</p>
+<p><code>liquidateTroves(uint n)</code>: callable by anyone, checks for under-collateralized Vaults below MCR and liquidates up to <code>n</code>, starting from the Vault with the lowest collateralization ratio; subject to gas constraints and the actual number of under-collateralized Vaults. The gas costs of <code>liquidateTroves(uint n)</code> mainly depend on the number of Vaults that are liquidated, and whether the Vaults are offset against the Stability Pool or redistributed. For n=1, the gas costs per liquidated Vault are roughly between 215K-400K, for n=5 between 80K-115K, for n=10 between 70K-82K, and for n=50 between 60K-65K.</p>
+<p><code>batchLiquidateTroves(address[] calldata _troveArray)</code>: callable by anyone, accepts a custom list of Vaults addresses as an argument. Steps through the provided list and attempts to liquidate every Vault, until it reaches the end or it runs out of gas. A Vault is liquidated only if it meets the conditions for liquidation. For a batch of 10 Vaults, the gas costs per liquidated Vault are roughly between 75K-83K, for a batch of 50 Vaults between 54K-69K.</p>
+<p><code>redeemCollateral(uint _THUSDAmount, address _firstRedemptionHint, address _upperPartialRedemptionHint, address _lowerPartialRedemptionHint, uint _partialRedemptionHintNICR, uint _maxIterations, uint _maxFeePercentage)</code>: redeems <code>_THUSDamount</code> of stablecoins for ether from the system. Decreases the caller’s thUSD balance, and sends them the corresponding amount of collateral. Executes successfully if the caller has sufficient thUSD to redeem. The number of Vaults redeemed from is capped by <code>_maxIterations</code>. The borrower has to provide a <code>_maxFeePercentage</code> that he/she is willing to accept in case of a fee slippage, i.e. when another redemption transaction is processed first, driving up the redemption fee.</p>
+<p><code>getCurrentICR(address _user, uint _price)</code>: computes the user’s individual collateralization ratio (ICR) based on their total collateral and total thUSD debt. Returns 2^256 -1 if they have 0 debt.</p>
+<p><code>getTroveOwnersCount()</code>: get the number of active Vaults in the system.</p>
+<p><code>getPendingETHReward(address _borrower)</code>: get the pending collateral reward from liquidation redistribution events, for the given Vault.</p>
+<p><code>getPendingTHUSDDebtReward(address _borrower)</code>: get the pending Vault debt "reward" (i.e. the amount of extra debt assigned to the Vault) from liquidation redistribution events.</p>
+<p><code>getEntireDebtAndColl(address _borrower)</code>: returns a Vault’s entire debt and collateral, which respectively include any pending debt rewards and collateral rewards from prior redistributions.</p>
+<p><code>getEntireSystemColl()</code>:  Returns the systemic entire collateral allocated to Vaults, i.e. the sum of the collateral in the Active Pool and the Default Pool.</p>
+<p><code>getEntireSystemDebt()</code> Returns the systemic entire debt assigned to Vaults, i.e. the sum of the THUSDDebt in the Active Pool and the Default Pool.</p>
+<p><code>getTCR()</code>: returns the total collateralization ratio (TCR) of the system.  The TCR is based on the the entire system debt and collateral (including pending rewards).</p>
+<p><code>checkRecoveryMode()</code>: reveals whether or not the system is in Recovery Mode (i.e. whether the Total Collateralization Ratio (TCR) is below the Critical Collateralization Ratio (CCR)).</p>
+<h3 id="hint-helper-functions---hinthelperssol">Hint Helper Functions - <code>HintHelpers.sol</code> </h3>
+<p><code>function getApproxHint(uint _CR, uint _numTrials, uint _inputRandomSeed)</code>: helper function, returns a positional hint for the sorted list. Used for transactions that must efficiently re-insert a Vault to the sorted list.</p>
+<p><code>getRedemptionHints(uint _THUSDamount, uint _price, uint _maxIterations)</code>: helper function specifically for redemptions. Returns three hints:</p>
+<ul>
+<li><code>firstRedemptionHint</code> is a positional hint for the first redeemable Vault (i.e. Vault with the lowest ICR &gt;= MCR).</li>
+<li><code>partialRedemptionHintNICR</code> is the final nominal ICR of the last Vault after being hit by partial redemption, or zero in case of no partial redemption (see <a href="#hints-for-redeemcollateral">Hints for <code>redeemCollateral</code></a>).</li>
+<li><code>truncatedTHUSDamount</code> is the maximum amount that can be redeemed out of the the provided <code>_THUSDamount</code>. This can be lower than <code>_THUSDamount</code> when redeeming the full amount would leave the last Vault of the redemption sequence with less debt than the minimum allowed value.</li>
+</ul>
+<p>The number of Vaults to consider for redemption can be capped by passing a non-zero value as <code>_maxIterations</code>, while passing zero will leave it uncapped.</p>
+<h3 id="stability-pool-functions---stabilitypoolsol">Stability Pool Functions - <code>StabilityPool.sol</code> </h3>
+<p><code>provideToSP(uint _amount)</code>: allows stablecoin holders to deposit&nbsp;<code>_amount</code>&nbsp;of thUSD to the Stability Pool. It sends <code>_amount</code> of thUSD from their address to the Pool, and tops up their thUSD deposit by&nbsp;<code>_amount</code>. If the depositor already has a non-zero deposit, it sends their accumulated collateral to their address.</p>
+<p><code>withdrawFromSP(uint _amount)</code>: allows a stablecoin holder to withdraw&nbsp;<code>_amount</code>&nbsp;of thUSD from the Stability Pool, up to the value of their remaining Stability deposit. It decreases their thUSD balance by&nbsp;<code>_amount</code>. It sends the depositor’s accumulated collateral gains to their address. If the user makes a partial withdrawal, their deposit remainder will earn further gains. To prevent potential loss evasion by depositors, withdrawals from the Stability Pool are suspended when there are liquidable Vaults with ICR &lt; 110% in the system.</p>
+<p><code>withdrawETHGainToTrove(address _hint)</code>: sends the user's entire accumulated collateral gain to the user's active Vault, and updates their Stability deposit with its accumulated loss from debt absorptions.</p>
+<p><code>getDepositorETHGain(address _depositor)</code>: returns the accumulated collateral gain for a given Stability Pool depositor</p>
+<p><code>getCompoundedTHUSDDeposit(address _depositor)</code>: returns the remaining deposit amount for a given Stability Pool depositor</p>
+<h3 id="thusd-token-thusdtokensol">thUSD token <code>THUSDToken.sol</code> </h3>
+<p>Standard ERC20 and EIP2612 (<code>permit()</code> ) functionality.</p>
+<p><strong>Note</strong>: <code>permit()</code> can be front-run, as it does not require that the permitted spender be the <code>msg.sender</code>.</p>
+<p>This allows flexibility, as it means that <em>anyone</em> can submit a Permit signed by A that allows B to spend a portion of A's tokens.</p>
+<p>The end result is the same for the signer A and spender B, but does mean that a <code>permit</code> transaction<br>
+could be front-run and revert - which may hamper the execution flow of a contract that is intended to handle the submission of a Permit on-chain.</p>
+<p>For more details please see the original proposal EIP-2612:<br>
+<a href="https://eips.ethereum.org/EIPS/eip-2612">https://eips.ethereum.org/EIPS/eip-2612</a></p>
+<h2 id="governance-onlyowner-functions">Governance OnlyOwner Functions </h2>
+<h3 id="pcv---pcvsol">PCV - <code>PCV.sol</code> </h3>
+<p><code>initialize()</code>: This function can be called only once, it initializes the PCV contract by setting the <code>debtToPay</code> with the <code>BOOTSTRAP_LOAN</code> constant amount and mints the debt amount from thUSD via <code>Borroweroperations</code> contract. It sets the <code>isInitialized</code> to <code>true</code>, and deposits the bootstrap loan minted from thUSD to <code>BAMM</code> contract.</p>
+<p><code>depositToBAMM(uint256 _thusdAmount)</code>: This function handles the deposit of <code>_thusdAmount</code> tokens into the <code>BAMM</code> contract from the Protocol Controlled Value <code>PCV</code>. Before proceeding, it ensures that the <code>_numShares</code> is less than or equal to the available balance of thUSD tokens held by the <code>PCV</code>. Upon verification, it grants approval for the <code>BAMM</code> contract to spend the specified _thusdAmount from the <code>PCV</code>. Subsequently, the function invokes the deposit method within the <code>BAMM</code> contract, effectively transferring the _thusdAmount from the <code>PCV</code> to <code>BAMM</code>.</p>
+<p><code>withdrawFromBAMM(uint256 _numShares)</code>: It handles the withdraw of thUSD tokens from <code>BAMM</code>. Before proceeding, it ensures that the <code>_numShares</code> is less than or equal to the available balance of thUSD tokens held by the <code>BAMM</code>. Upon verification, it calls <code>withdraw</code> function of <code>BAMM</code> contract.</p>
+<p><code>withdrawTHUSD(address _recipient, uint256 _thusdAmount)</code>: It handles the withdraw of thUSD tokens from <code>PCV</code>. This function is only callable by the Owner, Treasury or Council, and only after paying the entire debt. Before proceeding, it ensures that the <code>_thusdAmount</code> is less than or equal to the available balance of thUSD tokens held by the <code>PCV</code>. Upon verification, it transfers the thusd amount requested to the recipient passed in <code>_recipient</code> as parameter to the <code>withdrawTHUSD</code> function.</p>
+<p><code>withdrawCollateral(address _recipient, uint256 _thusdAmount)</code>: It handles the withdraw of Collateral tokens from <code>PCV</code>. This function is only callable by the Owner, Treasury or Council, and only after paying the entire debt. It transfers the thusd amount requested to the recipient passed in <code>_recipient</code> as parameter to the <code>withdrawTHUSD</code> function.</p>
+<p><code>payDebt(uint256 _thusdToBurn)</code>: It pays the <code>PCV</code> remaining bootstrap loan debt. This function is only callable by the Owner, Treasury or Council. Before proceeding, it ensures that the <code>debtToPay</code> is greater than 0 and that the <code>_thusdToBurn</code> is lesser than or equal to the available balance of thUSD tokens held by the <code>PCV</code>. Upon verification, It pays the reamining debt and burn the amount of thUSD tokens used to pay the debt.</p>
+<p><code>startChangingRoles(address _council, address _treasury)</code>: This function changes the council and treasury roles addresses. Before proceeding, it ensures that the owner or treasury addresses sent in the function parameters are different than the ones that have been already set. Upon verification, it sets the <code>changingRolesInitiated</code> with the <code>block.timestamp</code> value in which the function has been executed and it sets the <code>pendingCouncilAddress</code> with the <code>_council</code> address and <code>pendingTreasuryAddress</code> with the <code>_treasury</code> address</p>
+<p><code>cancelChangingRoles()</code>: This function can cancels the existing changing roles process. Before proceeding, it ensures that the changing roles process has been initiated. Upon verification, it sets both <code>pendingCouncilAddress</code> and <code>pendingTreasuryAddress</code> with the <code>_address(0)</code>, thus cancelling the existing change roles process.</p>
+<p><code>finalizeChangingRoles()</code>: This function finalizes the ongoing process of changing roles by setting the <code>council</code> and <code>treasury</code> addresses. Prior to execution, it verifies that the changing roles process has been initiated and that the <code>governanceTimeDelay</code> has elapsed since the initial call. Upon successful verification, it assigns the <code>council</code> address to the <code>pendingCouncilAddress</code> and the <code>treasury</code> address to the <code>pendingTreasuryAddress</code>. Subsequently, it resets both <code>pendingCouncilAddress</code> and <code>pendingTreasuryAddress</code> to <code>_address(0)</code>, thereby completing the current change roles</p>
+<p><code>addRecipientToWhitelist(address _recipient)</code>: This function adds a recipient to the recipients' whitelist. Before proceeding, it verifies that the recipient is not already included in the whitelist. Upon verification, it adds the <code>_recipient</code> address to the <code>recipientsWhitelist</code> whitelist.</p>
+<p><code>addRecipientsToWhitelist(address[] calldata _recipients)</code>: This function adds an array of recipients to the recipients' whitelist. Before proceeding, it verifies that the length of the <code>_recipients</code> array is greater than zero. Once verified, it adds each recipient address in the array to the <code>recipientsWhitelist</code>.</p>
+<p><code>removeRecipientFromWhitelist(address _recipient)</code>: This function removes a recipient to the recipients' whitelist. Before proceeding, it verifies that the recipient is included in the whitelist. Upon verification, it removes the <code>_recipient</code> address to the <code>recipientsWhitelist</code> whitelist.</p>
+<p><code>removeRecipientsFromWhitelist(address[] _recipients)</code>: This function removes an array of recipients to the recipients' whitelist. Before proceeding, it verifies that the length of the <code>_recipients</code> array is greater than zero. Once verified, it removes each recipient address of the array to the <code>recipientsWhitelist</code>.</p>
+<h3 id="pricefeed---pricefeedsol">PriceFeed - <code>PriceFeed.sol</code> </h3>
+<p><code>forceExitBothUntrustedStatus(bool tryTellorFirst)</code>: This function reverts if both oracles are still broken. In case when both oracles are online but have different prices then caller can control which will be checked first: ChainLink if <code>tryTellorFirst</code> is false, Tellor otherwise</p>
+<h3 id="thusdtoken---thusdtokensol">THUSDToken - <code>THUSDToken.sol</code> </h3>
+<p><code>startRevokeMintList(address _account)</code>: This function initiates the process of revoking a borrower operations contract's capability to mint new tokens. It first validates that the address provided in <code>_account</code> parameter is included in the <code>mintList</code>. Once verified, the function initializes the revocation process by updating <code>revokeMintListInitiated</code> with the current block timestamp and <code>pendingRevokedMintAddress</code> with the address passed in <code>_account</code> parameter.</p>
+<p><code>cancelRevokeMintList()</code>: It cancels the existing revoking mint process. The function first validates whether the <code>pendingRevokedMintAddress</code> is non-zero to confirm the presence of an ongoing pending revoking process. Once verified, it resets both <code>revokeMintListInitiated</code> and <code>pendingRevokedMintAddress</code> to zero and <code>address(0)</code> respectively. Effectively finalizing the existing revoking process.</p>
+<p><code>finalizeRevokeMintList()</code>: This function revokes the minting capability to the borrower operations contract, previously designated in the <code>pendingRevokedMintAddress</code>. It executes only after the governance delay has elapsed following the <code>revokeMintListInitiated</code> timestamp. By finalizing the revoke mint process it resets the <code>pendingRevokedMintAddress</code> and <code>revokeMintListInitiated</code>.</p>
+<p><code>startAddMintList(address _account)</code>: This function initiates the process of adding a borrower operations contract's capability to mint new tokens. It first validates that the address provided in <code>_account</code> parameter isn't included in the <code>mintList</code>. Once verified, the function initializes the adding process by updating <code>addMintListInitiated</code> with the current block timestamp and <code>pendingAddedMintAddress</code> with the address passed in <code>_account</code> parameter.</p>
+<p><code>cancelAddMintList()</code>: It cancels the existing adding mint process. The function first validates whether the <code>addMintListInitiated</code> is non-zero to confirm the presence of an ongoing pending adding mint capability process. Once verified, it resets both <code>addMintListInitiated</code> and <code>pendingAddedMintAddress</code> to zero and <code>address(0)</code> respectively. Effectively finalizing the existing revoking process.</p>
+<p><code>finalizeAddMintList()</code>: This function adds the minting capability to the borrower operations contract, previously designated in the <code>pendingAddedMintAddress</code>. It executes only after the governance delay has elapsed following the <code>addMintListInitiated</code> timestamp. By finalizing the revoke mint process it resets the <code>pendingAddedMintAddress</code> and <code>addMintListInitiated</code>.</p>
+<p><code>startAddContracts(address _troveManagerAddress, address _stabilityPoolAddress, address _borrowerOperationsAddress)</code>: This function initiates the process of integrating borrower operations, trove manager, and stability pool contracts, enabling them to mint and burn thUSD tokens. It begins by verifying that the contract addresses provided as parameters are indeed contracts. Once confirmed, it assigns the addresses to p<code>endingTroveManager</code>, <code>pendingStabilityPool</code>, and <code>pendingBorrowerOperations</code> using <code>_troveManagerAddress</code>, <code>_stabilityPoolAddress</code>, and <code>_borrowerOperationsAddress</code>, respectively. Additionally, it records the initiation of adding these contracts by setting <code>addContractsInitiated</code> to the current block timestamp when the transaction is executed.</p>
+<p><code>cancelAddContracts()</code>: This function terminates the current process of adding contracts. Initially, it checks that <code>addContractsInitiated</code> is not zero, which indicates an active process of adding contracts is underway. Upon confirmation, it resets <code>addContractsInitiated</code>, <code>pendingTroveManager</code>, <code>pendingStabilityPool</code>, and <code>pendingRevokedMintAddress</code> to 0, <code>address(0)</code>, <code>address(0)</code>, and <code>address(0)</code> respectively. This action effectively concludes the process of adding contracts.</p>
+<p><code>finalizeAddContracts()</code>: This function adds the minting and burning capabilities to the borrower operations, trove manager, and stability pool contracts previously designated in the <code>pendingBorrowerOperations</code>, <code>pendingStabilityPool</code> and <code>pendingTroveManager</code>. It executes only after the governance delay has elapsed following the <code>addContractsInitiated</code> timestamp. By finalizing the process of adding new contracts, it resets the <code>pendingBorrowerOperations</code>, <code>pendingStabilityPool</code>,<code>pendingTroveManager</code> and <code>addContractsInitiated</code>.</p>
+<p><code>startRevokeBurnList(address _account)</code>: This function initiates the process of revoking a borrower operations contract's capability to burn thUSD tokens. It first validates that the address provided in <code>_account</code> parameter is included in the <code>burnList</code>. Once verified, the function initializes the revocation process by updating <code>revokeBurnListInitiated</code> with the current block timestamp and <code>pendingRevokedBurnAddress</code> with the address passed in <code>_account</code> parameter.</p>
+<p><code>cancelRevokeBurnList()</code>: It cancels the existing revoking mint process. The function first validates whether the <code>pendingRevokedBurnAddress</code> is non-zero to confirm the presence of an ongoing pending revoking process. Once verified, it resets both <code>revokeBurnListInitiated</code> and <code>pendingRevokedBurnAddress</code> to zero and <code>address(0)</code> respectively. Effectively finalizing the existing revoking process.</p>
+<p><code>finalizeRevokeBurnList()</code>: This function revokes the minting capability to the borrower operations contract, previously designated in the <code>pendingRevokedBurnAddress</code>. It executes only after the governance delay has elapsed following the <code>revokeBurnListInitiated</code> timestamp. By finalizing the revoke mint process it resets the <code>pendingRevokedBurnAddress</code> and <code>revokeBurnListInitiated</code>.</p>
+<h2 id="supplying-hints-to-vault-operations">Supplying Hints to Vault operations </h2>
+<p>Vaults in Threshold USD are recorded in a sorted doubly linked list, sorted by their NICR, from high to low. NICR stands for the nominal collateral ratio that is simply the amount of collateral (in collateral) multiplied by 100e18 and divided by the amount of debt (in thUSD), without taking the collateral:USD price into account. Given that all Vaults are equally affected by collateral price changes, they do not need to be sorted by their real ICR.</p>
+<p>All Vault operations that change the collateralization ratio need to either insert or reinsert the Vault to the <code>SortedTroves</code> list. To reduce the computational complexity (and gas cost) of the insertion to the linked list, two ‘hints’ may be provided.</p>
+<p>A hint is the address of a Vault with a position in the sorted list close to the correct insert position.</p>
+<p>All Vault operations take two ‘hint’ arguments: a <code>_lowerHint</code> referring to the <code>nextId</code> and an <code>_upperHint</code> referring to the <code>prevId</code> of the two adjacent nodes in the linked list that are (or would become) the neighbors of the given Vault. Taking both direct neighbors as hints has the advantage of being much more resilient to situations where a neighbor gets moved or removed before the caller's transaction is processed: the transaction would only fail if both neighboring Vaults are affected during the pendency of the transaction.</p>
+<p>The better the ‘hint’ is, the shorter the list traversal, and the cheaper the gas cost of the function call. <code>SortedList::findInsertPosition(uint256 _NICR, address _prevId, address _nextId)</code> that is called by the Vault operation firsts check if <code>prevId</code> is still existant and valid (larger NICR than the provided <code>_NICR</code>) and then descends the list starting from <code>prevId</code>. If the check fails, the function further checks if <code>nextId</code> is still existant and valid (smaller NICR than the provided <code>_NICR</code>) and then ascends list starting from <code>nextId</code>.</p>
+<p>The <code>HintHelpers::getApproxHint(...)</code> function can be used to generate a useful hint pointing to a Vault relatively close to the target position, which can then be passed as an argument to the desired Vault operation or to <code>SortedTroves::findInsertPosition(...)</code> to get its two direct neighbors as ‘exact‘ hints (based on the current state of the system).</p>
+<p><code>getApproxHint(uint _CR, uint _numTrials, uint _inputRandomSeed)</code> randomly selects <code>numTrials</code> amount of Vaults, and returns the one with the closest position in the list to where a Vault with a nominal collateralization ratio of <code>_CR</code> should be inserted. It can be shown mathematically that for <code>numTrials = k * sqrt(n)</code>, the function's gas cost is with very high probability worst case <code>O(sqrt(n)) if k &gt;= 10</code>. For scalability reasons (Infura is able to serve up to ~4900 trials), the function also takes a random seed <code>_inputRandomSeed</code> to make sure that calls with different seeds may lead to a different results, allowing for better approximations through multiple consecutive runs.</p>
+<p><strong>Vault operation without a hint</strong></p>
+<ol>
+<li>User performs Vault operation in their browser</li>
+<li>Call the Vault operation with <code>_lowerHint = _upperHint = userAddress</code></li>
+</ol>
+<p>Gas cost will be worst case <code>O(n)</code>, where n is the size of the <code>SortedTroves</code> list.</p>
+<p><strong>Vault operation with hints</strong></p>
+<ol>
+<li>User performs Vault operation in their browser</li>
+<li>The front end computes a new collateralization ratio locally, based on the change in collateral and/or debt.</li>
+<li>Call <code>HintHelpers::getApproxHint(...)</code>, passing it the computed nominal collateralization ratio. Returns an address close to the correct insert position</li>
+<li>Call <code>SortedTroves::findInsertPosition(uint256 _NICR, address _prevId, address _nextId)</code>, passing it the same approximate hint via both <code>_prevId</code> and <code>_nextId</code> and the new nominal collateralization ratio via <code>_NICR</code>.</li>
+<li>Pass the ‘exact‘ hint in the form of the two direct neighbors, i.e. <code>_nextId</code> as <code>_lowerHint</code> and <code>_prevId</code> as <code>_upperHint</code>, to the Vault operation function call. (Note that the hint may become slightly inexact due to pending transactions that are processed first, though this is gracefully handled by the system that can ascend or descend the list as needed to find the right position.)</li>
+</ol>
+<p>Gas cost of steps 2-4 will be free, and step 5 will be <code>O(1)</code>.</p>
+<p>Hints allow cheaper Vault operations for the user, at the expense of a slightly longer time to completion, due to the need to await the result of the two read calls in steps 1 and 2 - which may be sent as JSON-RPC requests to Infura.</p>
+<h3 id="example-borrower-operations-with-hints">Example Borrower Operations with Hints </h3>
+<h4 id="opening-a-vault">Opening a vault </h4>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>  const toWei = web3.utils.toWei
+  const toBN = web3.utils.toBN
+
+  const THUSDAmount = toBN(toWei('2500')) // borrower wants to withdraw 2500 thUSD
+  const ETHColl = toBN(toWei('5')) // borrower wants to lock 5 collateral
+
+  // Call deployed TroveManager contract to read the liquidation reserve and latest borrowing fee
+  const liquidationReserve = await troveManager.THUSD_GAS_COMPENSATION()
+  const expectedFee = await troveManager.getBorrowingFeeWithDecay(THUSDAmount)
+
+  // Total debt of the new vault = thUSD amount drawn, plus fee, plus the liquidation reserve
+  const expectedDebt = THUSDAmount.add(expectedFee).add(liquidationReserve)
+
+  // Get the nominal NICR of the new vault
+  const _1e20 = toBN(toWei('100'))
+  let NICR = ETHColl.mul(_1e20).div(expectedDebt)
+
+  // Get an approximate address hint from the deployed HintHelper contract. Use (15 * number of vaults) trials
+  // to get an approx. hint that is close to the right position.
+  let numTroves = await sortedTroves.getSize()
+  let numTrials = numTroves.mul(toBN('15'))
+  let { 0: approxHint } = await hintHelpers.getApproxHint(NICR, numTrials, 42)  // random seed of 42
+
+  // Use the approximate hint to get the exact upper and lower hints from the deployed SortedTroves contract
+  let { 0: upperHint, 1: lowerHint } = await sortedTroves.findInsertPosition(NICR, approxHint, approxHint)
+
+  // Finally, call openTrove with the exact upperHint and lowerHint
+  const maxFee = '5'.concat('0'.repeat(16)) // Slippage protection: 5%
+  await borrowerOperations.openTrove(maxFee, THUSDAmount, upperHint, lowerHint, { value: ETHColl })
+</code></pre><h4 id="adjusting-a-vault">Adjusting a Vault </h4>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>  const collIncrease = toBN(toWei('1'))  // borrower wants to add 1 collateral
+  const THUSDRepayment = toBN(toWei('230')) // borrower wants to repay 230 thUSD
+
+  // Get vault's current debt and coll
+  const {0: debt, 1: coll} = await troveManager.getEntireDebtAndColl(borrower)
+
+  const newDebt = debt.sub(THUSDRepayment)
+  const newColl = coll.add(collIncrease)
+
+  NICR = newColl.mul(_1e20).div(newDebt)
+
+  // Get an approximate address hint from the deployed HintHelper contract. Use (15 * number of vaults) trials
+  // to get an approx. hint that is close to the right position.
+  numTroves = await sortedTroves.getSize()
+  numTrials = numTroves.mul(toBN('15'))
+  ({0: approxHint} = await hintHelpers.getApproxHint(NICR, numTrials, 42))
+
+  // Use the approximate hint to get the exact upper and lower hints from the deployed SortedTroves contract
+  ({ 0: upperHint, 1: lowerHint } = await sortedTroves.findInsertPosition(NICR, approxHint, approxHint))
+
+  // Call adjustTrove with the exact upperHint and lowerHint
+  await borrowerOperations.adjustTrove(maxFee, 0, THUSDRepayment, false, upperHint, lowerHint, {value: collIncrease})
+</code></pre><h3 id="hints-for-redeemcollateral">Hints for <code>redeemCollateral</code> </h3>
+<p><code>TroveManager::redeemCollateral</code> as a special case requires additional hints:</p>
+<ul>
+<li><code>_firstRedemptionHint</code> hints at the position of the first Vault that will be redeemed from,</li>
+<li><code>_lowerPartialRedemptionHint</code> hints at the <code>nextId</code> neighbor of the last redeemed Vault upon reinsertion, if it's partially redeemed,</li>
+<li><code>_upperPartialRedemptionHint</code> hints at the <code>prevId</code> neighbor of the last redeemed Vault upon reinsertion, if it's partially redeemed,</li>
+<li><code>_partialRedemptionHintNICR</code> ensures that the transaction won't run out of gas if neither <code>_lowerPartialRedemptionHint</code> nor <code>_upperPartialRedemptionHint</code> are  valid anymore.</li>
+</ul>
+<p><code>redeemCollateral</code> will only redeem from Vaults that have an ICR &gt;= MCR. In other words, if there are Vaults at the bottom of the SortedTroves list that are below the minimum collateralization ratio (which can happen after an collateral:USD price drop), they will be skipped. To make this more gas-efficient, the position of the first redeemable Vault should be passed as <code>_firstRedemptionHint</code>.</p>
+<h4 id="first-redemption-hint">First redemption hint </h4>
+<p>The first redemption hint is the address of the vault from which to start the redemption sequence - i.e the address of the first vault in the system with ICR &gt;= 110%.</p>
+<p>If when the transaction is confirmed the address is in fact not valid - the system will start from the lowest ICR vault in the system, and step upwards until it finds the first vault with ICR &gt;= 110% to redeem from. In this case, since the number of vaults below 110% will be limited due to ongoing liquidations, there's a good chance that the redemption transaction still succeed.</p>
+<h4 id="partial-redemption-hints">Partial redemption hints </h4>
+<p>All Vaults that are fully redeemed from in a redemption sequence are left with zero debt, and are closed. The remaining collateral (the difference between the orginal collateral and the amount used for the redemption) will be claimable by the owner.</p>
+<p>It’s likely that the last Vault in the redemption sequence would be partially redeemed from - i.e. only some of its debt cancelled with thUSD. In this case, it should be reinserted somewhere between top and bottom of the list. The <code>_lowerPartialRedemptionHint</code> and <code>_upperPartialRedemptionHint</code> hints passed to <code>redeemCollateral</code> describe the future neighbors the expected reinsert position.</p>
+<p>However, if between the off-chain hint computation and on-chain execution a different transaction changes the state of a Vault that would otherwise be hit by the redemption sequence, then the off-chain hint computation could end up totally inaccurate. This could lead to the whole redemption sequence reverting due to out-of-gas error.</p>
+<p>To mitigate this, another hint needs to be provided: <code>_partialRedemptionHintNICR</code>, the expected nominal ICR of the final partially-redeemed-from Vault. The on-chain redemption function checks whether, after redemption, the nominal ICR of this Vault would equal the nominal ICR hint.</p>
+<p>If not, the redemption sequence doesn’t perform the final partial redemption, and terminates early. This ensures that the transaction doesn’t revert, and most of the requested thUSD redemption can be fulfilled.</p>
+<h4 id="example-redemption-with-hints">Example Redemption with hints </h4>
+<pre data-role="codeBlock" data-info="" class="language-text"><code> // Get the redemptions hints from the deployed HintHelpers contract
+  const redemptionhint = await hintHelpers.getRedemptionHints(THUSDAmount, price, 50)
+
+  const { 0: firstRedemptionHint, 1: partialRedemptionNewICR, 2: truncatedTHUSDAmount } = redemptionhint
+
+  // Get the approximate partial redemption hint
+  const { hintAddress: approxPartialRedemptionHint } = await contracts.hintHelpers.getApproxHint(partialRedemptionNewICR, numTrials, 42)
+
+  /* Use the approximate partial redemption hint to get the exact partial redemption hint from the
+  * deployed SortedTroves contract
+  */
+  const exactPartialRedemptionHint = (await sortedTroves.findInsertPosition(partialRedemptionNewICR,
+    approxPartialRedemptionHint,
+    approxPartialRedemptionHint))
+
+  /* Finally, perform the on-chain redemption, passing the truncated thUSD amount, the correct hints, and the expected
+  * ICR of the final partially redeemed vault in the sequence.
+  */
+  await troveManager.redeemCollateral(truncatedTHUSDAmount,
+    firstRedemptionHint,
+    exactPartialRedemptionHint[0],
+    exactPartialRedemptionHint[1],
+    partialRedemptionNewICR,
+    0, maxFee,
+    { from: redeemer },
+  )
+</code></pre><h2 id="gas-compensation">Gas compensation </h2>
+<p>In Threshold USD, we want to maximize liquidation throughput, and ensure that undercollateralized Vaults are liquidated promptly by “liquidators” - agents who may also hold Stability Pool deposits, and who expect to profit from liquidations.</p>
+<p>However, gas costs in Ethereum are substantial. If the gas costs of our public liquidation functions are too high, this may discourage liquidators from calling them, and leave the system holding too many undercollateralized Vaults for too long.</p>
+<p>The protocol thus directly compensates liquidators for their gas costs, to incentivize prompt liquidations in both normal and extreme periods of high gas prices. Liquidators should be confident that they will at least break even by making liquidation transactions.</p>
+<p>Gas compensation is paid in a mix of thUSD and collateral. While the collateral is taken from the liquidated Vault, the thUSD is provided by the borrower. When a borrower first issues debt, some thUSD is reserved as a Liquidation Reserve. A liquidation transaction thus draws collateral from the vault(s) it liquidates, and sends the both the reserved thUSD and the compensation in collateral to the caller, and liquidates the remainder.</p>
+<p>When a liquidation transaction liquidates multiple Vaults, each Vault contributes thUSD and collateral towards the total compensation for the transaction.</p>
+<p>Gas compensation per liquidated Vault is given by the formula:</p>
+<p>Gas compensation = <code>200 thUSD + 0.5% of vault’s collateral (collateral)</code></p>
+<p>The intentions behind this formula are:</p>
+<ul>
+<li>To ensure that smaller Vaults are liquidated promptly in normal times, at least</li>
+<li>To ensure that larger Vaults are liquidated promptly even in extreme high gas price periods. The larger the Vault, the stronger the incentive to liquidate it.</li>
+</ul>
+<h3 id="gas-compensation-schedule">Gas compensation schedule </h3>
+<p>When a borrower opens a Vault, an additional 200 thUSD debt is issued, and 200 thUSD is minted and sent to a dedicated contract (<code>GasPool</code>) for gas compensation - the "gas pool".</p>
+<p>When a borrower closes their active Vault, this gas compensation is refunded: 200 thUSD is burned from the gas pool's balance, and the corresponding 200 thUSD debt on the Vault is cancelled.</p>
+<p>The purpose of the 200 thUSD Liquidation Reserve is to provide a minimum level of gas compensation, regardless of the Vault's collateral size or the current collateral price.</p>
+<h3 id="liquidation">Liquidation </h3>
+<p>When a Vault is liquidated, 0.5% of its collateral is sent to the liquidator, along with the 200 thUSD Liquidation Reserve. Thus, a liquidator always receives <code>{200 thUSD + 0.5% collateral}</code> per Vault that they liquidate. The collateral remainder of the Vault is then either offset, redistributed or a combination of both, depending on the amount of thUSD in the Stability Pool.</p>
+<h3 id="gas-compensation-and-redemptions">Gas compensation and redemptions </h3>
+<p>When a Vault is redeemed from, the redemption is made only against (debt - 200), not the entire debt.</p>
+<p>But if the redemption causes an amount (debt - 200) to be cancelled, the Vault is then closed: the 200 thUSD Liquidation Reserve is cancelled with its remaining 200 debt. That is, the gas compensation is burned from the gas pool, and the 200 debt is zero’d. The collateral surplus from the Vault remains in the system, to be later claimed by its owner.</p>
+<h3 id="gas-compensation-helper-functions">Gas compensation helper functions </h3>
+<p>Gas compensation functions are found in the parent <em>LiquityBase.sol</em> contract:</p>
+<p><code>_getCollGasCompensation(uint _entireColl)</code> returns the amount of collateral to be drawn from a vault's collateral and sent as gas compensation.</p>
+<p><code>_getCompositeDebt(uint _debt)</code> returns the composite debt (drawn debt + gas compensation) of a vault, for the purpose of ICR calculation.</p>
+<h2 id="the-stability-pool">The Stability Pool </h2>
+<p>Any thUSD holder may deposit thUSD to the Stability Pool. It is designed to absorb debt from liquidations, and reward depositors with the liquidated collateral, shared between depositors in proportion to their deposit size.</p>
+<p>Since liquidations are expected to occur at an ICR of just below 110%, and even in most extreme cases, still above 100%, a depositor can expect to receive a net gain from most liquidations. When that holds, the dollar value of the collateral gain from a liquidation exceeds the dollar value of the thUSD loss (assuming the price of thUSD is $1).</p>
+<p>We define the <strong>collateral surplus</strong> in a liquidation as <code>$(collateral) - debt</code>, where <code>$(...)</code> represents the dollar value.</p>
+<p>At an thUSD price of $1, Vaults with <code>ICR &gt; 100%</code> have a positive collateral surplus.</p>
+<p>After one or more liquidations, a deposit will have absorbed thUSD losses, and received collateral gains. The remaining reduced deposit is the <strong>compounded deposit</strong>.</p>
+<p>Stability Providers expect a positive ROI on their initial deposit. That is:</p>
+<p><code>$(collateral Gain + compounded deposit) &gt; $(initial deposit)</code></p>
+<h3 id="mixed-liquidations-offset-and-redistribution">Mixed liquidations: offset and redistribution </h3>
+<p>When a liquidation hits the Stability Pool, it is known as an <strong>offset</strong>: the debt of the Vault is offset against the thUSD in the Pool. When <strong>x</strong> thUSD debt is offset, the debt is cancelled, and <strong>x</strong> thUSD in the Pool is burned. When the thUSD Stability Pool is greater than the debt of the Vault, all the Vault's debt is cancelled, and all its collateral is shared between depositors. This is a <strong>pure offset</strong>.</p>
+<p>It can happen that the thUSD in the Stability Pool is less than the debt of a Vault. In this case, the the whole Stability Pool will be used to offset a fraction of the Vault’s debt, and an equal fraction of the Vault’s collateral will be assigned to Stability Providers. The remainder of the Vault’s debt and collateral gets redistributed to active Vaults. This is a <strong>mixed offset and redistribution</strong>.</p>
+<p>Because the collateral fraction matches the offset debt fraction, the effective ICR of the collateral and debt that is offset, is equal to the ICR of the Vault. So, for depositors, the ROI per liquidation depends only on the ICR of the liquidated Vault.</p>
+<h3 id="stability-pool-deposit-losses-and-collateral-gains---implementation">Stability Pool deposit losses and collateral gains - implementation </h3>
+<p>Deposit functionality is handled by <code>StabilityPool.sol</code> (<code>provideToSP</code>, <code>withdrawFromSP</code>, etc).  StabilityPool also handles the liquidation calculation, and holds the thUSD and collateral balances.</p>
+<p>When a liquidation is offset with the Stability Pool, debt from the liquidation is cancelled with an equal amount of thUSD in the pool, which is burned.</p>
+<p>Individual deposits absorb the debt from the liquidated Vault in proportion to their deposit as a share of total deposits.</p>
+<p>Similarly the liquidated Vault’s collateral is assigned to depositors in the same proportion.</p>
+<p>For example: a liquidation that empties 30% of the Stability Pool will reduce each deposit by 30%, no matter the size of the deposit.</p>
+<h3 id="stability-pool-example">Stability Pool example </h3>
+<p>Here’s an example of the Stability Pool absorbing liquidations. The Stability Pool contains 3 depositors, A, B and C, and the collateral:USD price is 100.</p>
+<p>There are two Vaults to be liquidated, T1 and T2:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Vault</th>
+<th>Collateral (collateral)</th>
+<th>Debt (THUSD)</th>
+<th>ICR</th>
+<th><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>c</mi><mi>o</mi><mi>l</mi><mi>l</mi><mi>a</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>a</mi><mi>l</mi><mo stretchy="false">)</mo><mo stretchy="false">(</mo></mrow><annotation encoding="application/x-tex">(collateral) (</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">co</span><span class="mord mathnormal" style="margin-right:0.01968em;">ll</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal" style="margin-right:0.02778em;">er</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mclose">)</span><span class="mopen">(</span></span></span></span>)</th>
+<th>Collateral surplus ($)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>T1</td>
+<td>1.6</td>
+<td>150</td>
+<td>1.066666667</td>
+<td>160</td>
+<td>10</td>
+</tr>
+<tr>
+<td></td>
+<td>T2</td>
+<td>2.45</td>
+<td>225</td>
+<td>1.088888889</td>
+<td>245</td>
+<td>20</td>
+</tr>
+</tbody>
+</table>
+<p>Here are the deposits, before any liquidations occur:</p>
+<table>
+<thead>
+<tr>
+<th>Depositor</th>
+<th>Deposit</th>
+<th>Share</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>100</td>
+<td>0.1667</td>
+</tr>
+<tr>
+<td>B</td>
+<td>200</td>
+<td>0.3333</td>
+</tr>
+<tr>
+<td>C</td>
+<td>300</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>Total</td>
+<td>600</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Now, the first liquidation T1 is absorbed by the Pool: 150 debt is cancelled with 150 Pool thUSD, and its 1.6 collateral is split between depositors. We see the gains earned by A, B, C, are in proportion to their share of the total thUSD in the Stability Pool:</p>
+<table>
+<thead>
+<tr>
+<th>Deposit</th>
+<th>Debt absorbed from T1</th>
+<th>Deposit after</th>
+<th>Total collateral gained</th>
+<th><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>d</mi><mi>e</mi><mi>p</mi><mi>o</mi><mi>s</mi><mi>i</mi><mi>t</mi><mo>+</mo><mi>c</mi><mi>o</mi><mi>l</mi><mi>l</mi><mi>a</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>a</mi><mi>l</mi><mi>g</mi><mi>a</mi><mi>i</mi><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">(</mo></mrow><annotation encoding="application/x-tex">(deposit + collateral gain) (</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">d</span><span class="mord mathnormal">e</span><span class="mord mathnormal">p</span><span class="mord mathnormal">os</span><span class="mord mathnormal">i</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">co</span><span class="mord mathnormal" style="margin-right:0.01968em;">ll</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal" style="margin-right:0.02778em;">er</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">ain</span><span class="mclose">)</span><span class="mopen">(</span></span></span></span>)</th>
+<th>Current ROI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>25</td>
+<td>75</td>
+<td>0.2666666667</td>
+<td>101.6666667</td>
+<td>0.01666666667</td>
+</tr>
+<tr>
+<td>B</td>
+<td>50</td>
+<td>150</td>
+<td>0.5333333333</td>
+<td>203.3333333</td>
+<td>0.01666666667</td>
+</tr>
+<tr>
+<td>C</td>
+<td>75</td>
+<td>225</td>
+<td>0.8</td>
+<td>305</td>
+<td>0.01666666667</td>
+</tr>
+<tr>
+<td>Total</td>
+<td>150</td>
+<td>450</td>
+<td>1.6</td>
+<td>610</td>
+<td>0.01666666667</td>
+</tr>
+</tbody>
+</table>
+<p>And now the second liquidation, T2, occurs: 225 debt is cancelled with 225 Pool thUSD, and 2.45 collateral is split between depositors. The accumulated collateral gain includes all collateral gain from T1 and T2.</p>
+<table>
+<thead>
+<tr>
+<th>Depositor</th>
+<th>Debt absorbed from T2</th>
+<th>Deposit after</th>
+<th>Accumulated collateral</th>
+<th><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>d</mi><mi>e</mi><mi>p</mi><mi>o</mi><mi>s</mi><mi>i</mi><mi>t</mi><mo>+</mo><mi>c</mi><mi>o</mi><mi>l</mi><mi>l</mi><mi>a</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>a</mi><mi>l</mi><mi>g</mi><mi>a</mi><mi>i</mi><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">(</mo></mrow><annotation encoding="application/x-tex">(deposit + collateral gain) (</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">d</span><span class="mord mathnormal">e</span><span class="mord mathnormal">p</span><span class="mord mathnormal">os</span><span class="mord mathnormal">i</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">co</span><span class="mord mathnormal" style="margin-right:0.01968em;">ll</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal" style="margin-right:0.02778em;">er</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">ain</span><span class="mclose">)</span><span class="mopen">(</span></span></span></span>)</th>
+<th>Current ROI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>37.5</td>
+<td>37.5</td>
+<td>0.675</td>
+<td>105</td>
+<td>0.05</td>
+</tr>
+<tr>
+<td>B</td>
+<td>75</td>
+<td>75</td>
+<td>1.35</td>
+<td>210</td>
+<td>0.05</td>
+</tr>
+<tr>
+<td>C</td>
+<td>112.5</td>
+<td>112.5</td>
+<td>2.025</td>
+<td>315</td>
+<td>0.05</td>
+</tr>
+<tr>
+<td>Total</td>
+<td>225</td>
+<td>225</td>
+<td>4.05</td>
+<td>630</td>
+<td>0.05</td>
+</tr>
+</tbody>
+</table>
+<p>It’s clear that:</p>
+<ul>
+<li>Each depositor gets the same ROI from a given liquidation</li>
+<li>Depositors return increases over time, as the deposits absorb liquidations with a positive collateral surplus</li>
+</ul>
+<p>Eventually, a deposit can be fully “used up” in absorbing debt, and reduced to 0. This happens whenever a liquidation occurs that empties the Stability Pool. A deposit stops earning collateral gains when it has been reduced to 0.</p>
+<h3 id="stability-pool-implementation">Stability Pool implementation </h3>
+<p>A depositor obtains their compounded deposits and corresponding collateral gain in a “pull-based” manner. The system calculates the depositor’s compounded deposit and accumulated collateral gain when the depositor makes an operation that changes their collateral deposit.</p>
+<p>Depositors deposit thUSD via <code>provideToSP</code>, and withdraw with <code>withdrawFromSP</code>. Their accumulated collateral gain is paid out every time they make a deposit operation - so collateral payout is triggered by both deposit withdrawals and top-ups.</p>
+<h3 id="how-deposits-and-collateral-gains-are-tracked">How deposits and collateral gains are tracked </h3>
+<p>We use a highly scalable method of tracking deposits and collateral gains that has O(1) complexity.</p>
+<p>When a liquidation occurs, rather than updating each depositor’s deposit and collateral gain, we simply update two intermediate variables: a product <code>P</code>, and a sum <code>S</code>.</p>
+<p>A mathematical manipulation allows us to factor out the initial deposit, and accurately track all depositors’ compounded deposits and accumulated collateral gains over time, as liquidations occur, using just these two variables. When depositors join the Pool, they get a snapshot of <code>P</code> and <code>S</code>.</p>
+<p>The formula for a depositor’s accumulated collateral gain is derived here:</p>
+<p><a href="https://github.com/threshold-usd/dev/blob/main/papers/Scalable_Reward_Distribution_with_Compounding_Stakes.pdf">Scalable reward distribution for compounding, decreasing stake</a></p>
+<p>Each liquidation updates <code>P</code> and <code>S</code>. After a series of liquidations, a compounded deposit and corresponding collateral gain can be calculated using the initial deposit, the depositor’s snapshots, and the current values of <code>P</code> and <code>S</code>.</p>
+<p>Any time a depositor updates their deposit (withdrawal, top-up) their collateral gain is paid out, and they receive new snapshots of <code>P</code> and <code>S</code>.</p>
+<p>This is similar in spirit to the simpler <a href="http://batog.info/papers/scalable-reward-distribution.pdf">Scalable Reward Distribution on the Ethereum Network by Bogdan Batog et al</a>, however, the mathematics is more involved as we handle a compounding, decreasing stake, and a corresponding collateral reward.</p>
+<h2 id="threshold-usd-system-fees">Threshold USD System Fees </h2>
+<p>Threshold USD generates fee revenue from certain operations. Fees are captured by the PCV.</p>
+<p>Threshold USD generates revenue in two ways: redemptions, and issuance of new thUSD tokens.</p>
+<p>Redemptions fees are paid in collateral. Issuance fees (when a user opens a Vault, or issues more thUSD from their existing Vault) are paid in thUSD.</p>
+<h3 id="redemption-fee">Redemption Fee </h3>
+<p>The redemption fee is taken as a cut of the total collateral drawn from the system in a redemption. It is based on the current redemption rate.</p>
+<p>In the <code>TroveManager</code>, <code>redeemCollateral</code> calculates the collateral fee and transfers it to the staking contract, <code>PCV.sol</code></p>
+<h3 id="issuance-fee">Issuance fee </h3>
+<p>The issuance fee is charged on the thUSD drawn by the user and is added to the Vault's thUSD debt. It is based on the current borrowing rate.</p>
+<p>When new thUSD are drawn via one of the <code>BorrowerOperations</code> functions <code>openTrove</code>, <code>withdrawTHUSD</code> or <code>adjustTrove</code>, an extra amount <code>THUSDFee</code> is minted, and an equal amount of debt is added to the user’s Vault. The <code>THUSDFee</code> is transferred to the staking contract, <code>PCV.sol</code>.</p>
+<h3 id="fee-schedule">Fee Schedule </h3>
+<p>Redemption and issuance fees are based on the <code>baseRate</code> state variable in TroveManager, which is dynamically updated. The <code>baseRate</code> increases with each redemption, and decays according to time passed since the last fee event - i.e. the last redemption or issuance of thUSD.</p>
+<p>The current fee schedule:</p>
+<p>Upon each redemption:</p>
+<ul>
+<li><code>baseRate</code> is decayed based on time passed since the last fee event</li>
+<li><code>baseRate</code> is incremented by an amount proportional to the fraction of the total thUSD supply that was redeemed</li>
+<li>The redemption rate is given by <code>min{REDEMPTION_FEE_FLOOR + baseRate * ETHdrawn, DECIMAL_PRECISION}</code></li>
+</ul>
+<p>Upon each debt issuance:</p>
+<ul>
+<li><code>baseRate</code> is decayed based on time passed since the last fee event</li>
+<li>The borrowing rate is given by <code>min{BORROWING_FEE_FLOOR + baseRate * newDebtIssued, MAX_BORROWING_FEE}</code></li>
+</ul>
+<p><code>REDEMPTION_FEE_FLOOR</code> and <code>BORROWING_FEE_FLOOR</code> are both set to 0.5%, while <code>MAX_BORROWING_FEE</code> is 5% and <code>DECIMAL_PRECISION</code> is 100%.</p>
+<h3 id="intuition-behind-fees">Intuition behind fees </h3>
+<p>The larger the redemption volume, the greater the fee percentage.</p>
+<p>The longer the time delay since the last operation, the more the <code>baseRate</code> decreases.</p>
+<p>The intent is to throttle large redemptions with higher fees, and to throttle borrowing directly after large redemption volumes. The <code>baseRate</code> decay over time ensures that the fee for both borrowers and redeemers will “cool down”, while redemptions volumes are low.</p>
+<p>Furthermore, the fees cannot become smaller than 0.5%, which in the case of redemptions protects the redemption facility from being front-run by arbitrageurs that are faster than the price feed. The 5% maximum on the issuance is meant to keep the system (somewhat) attractive for new borrowers even in phases where the monetary is contracting due to redemptions.</p>
+<h3 id="fee-decay-implementation">Fee decay Implementation </h3>
+<p>Time is measured in units of minutes. The <code>baseRate</code> decay is based on <code>block.timestamp - lastFeeOpTime</code>. If less than a minute has passed since the last fee event, then <code>lastFeeOpTime</code> is not updated. This prevents “base rate griefing”: i.e. it prevents an attacker stopping the <code>baseRate</code> from decaying by making a series of redemptions or issuing thUSD with time intervals of &lt; 1 minute.</p>
+<p>The decay parameter is tuned such that the fee changes by a factor of 0.99 per hour, i.e. it loses 1% of its current value per hour. At that rate, after one week, the baseRate decays to 18% of its prior value. The exact decay parameter is subject to change, and will be fine-tuned via economic modelling.</p>
+<h2 id="redistributions-and-corrected-stakes">Redistributions and Corrected Stakes </h2>
+<p>When a liquidation occurs and the Stability Pool is empty or smaller than the liquidated debt, the redistribution mechanism should distribute the remaining collateral and debt of the liquidated Vault, to all active Vaults in the system, in proportion to their collateral.</p>
+<p>For two Vaults A and B with collateral <code>A.coll &gt; B.coll</code>, Vault A should earn a bigger share of the liquidated collateral and debt.</p>
+<p>In Threshold USD it is important that all active Vaults remain ordered by their ICR. We have proven that redistribution of the liquidated debt and collateral proportional to active Vault’ collateral, preserves the ordering of active Vaults by ICR, as liquidations occur over time.  Please see the <a href="https://github.com/threshold-usd/dev/tree/main/papers">proofs section</a>.</p>
+<p>However, when it comes to implementation, Ethereum gas costs make it too expensive to loop over all Vaults and write new data to storage for each one. When a Vault receives redistribution rewards, the system does not update the Vault's collateral and debt properties - instead, the Vault’s rewards remain "pending" until the borrower's next operation.</p>
+<p>These “pending rewards” can not be accounted for in future reward calculations in a scalable way.</p>
+<p>However: the ICR of a Vault is always calculated as the ratio of its total collateral to its total debt. So, a Vault’s ICR calculation <strong>does</strong> include all its previous accumulated rewards.</p>
+<p><strong>This causes a problem: redistributions proportional to initial collateral can break vault ordering.</strong></p>
+<p>Consider the case where new Vault is created after all active Vaults have received a redistribution from a liquidation.&nbsp;This “fresh” Vault has then experienced fewer rewards than the older Vaults, and thus, it receives a disproportionate share of subsequent rewards, relative to its total collateral.</p>
+<p>The fresh vault would earns rewards based on its <strong>entire</strong> collateral, whereas old Vaults would earn rewards based only on <strong>some portion</strong> of their collateral - since a part of their collateral is pending, and not included in the Vault’s <code>coll</code> property.</p>
+<p>This can break the ordering of Vaults by ICR - see the <a href="https://github.com/threshold-usd/dev/tree/main/papers">proofs section</a>.</p>
+<h3 id="corrected-stake-solution">Corrected Stake Solution </h3>
+<p>We use a corrected stake to account for this discrepancy, and ensure that newer Vaults earn the same liquidation rewards per unit of total collateral, as do older Vaults with pending rewards. Thus the corrected stake ensures the sorted list remains ordered by ICR, as liquidation events occur over time.</p>
+<p>When a Vault is opened, its stake is calculated based on its collateral, and snapshots of the entire system collateral and debt which were taken immediately after the last liquidation.</p>
+<p>A Vault’s stake is given by:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>stake = _coll.mul(totalStakesSnapshot).div(totalCollateralSnapshot)
+</code></pre><p>It then earns redistribution rewards based on this corrected stake. A newly opened Vault’s stake will be less than its raw collateral, if the system contains active Vaults with pending redistribution rewards when it was made.</p>
+<p>Whenever a borrower adjusts their Vault’s collateral, their pending rewards are applied, and a fresh corrected stake is computed.</p>
+<p>To convince yourself this corrected stake preserves ordering of active Vaults by ICR, please see the <a href="https://github.com/threshold-usd/dev/blob/main/papers">proofs section</a>.</p>
+<h2 id="math-proofs">Math Proofs </h2>
+<p>The Threshold USD implementation relies on some important system properties and mathematical derivations.</p>
+<p>In particular, we have:</p>
+<ul>
+<li>Proofs that Vault ordering is maintained throughout a series of liquidations and new Vault openings</li>
+<li>A derivation of a formula and implementation for a highly scalable (O(1) complexity) reward distribution in the Stability Pool, involving compounding and decreasing stakes.</li>
+</ul>
+<p>PDFs of these can be found in <a href="https://github.com/threshold-usd/dev/blob/main/papers">https://github.com/threshold-usd/dev/blob/main/papers</a></p>
+<h2 id="definitions">Definitions </h2>
+<p><em><strong>Vault:</strong></em> a collateralized debt position, bound to a single Ethereum address. Also referred to as a “CDP” in similar protocols.</p>
+<p><em><strong>THUSD</strong></em>:  The stablecoin that may be issued from a user's collateralized debt position and freely transferred/traded to any Ethereum address. Intended to maintain parity with the US dollar, and can always be redeemed directly with the system: 1 thUSD is always exchangeable for $1 USD worth of collateral.</p>
+<p><em><strong>Active Vault:</strong></em> an Ethereum address owns an “active Vault” if there is a node in the <code>SortedTroves</code> list with ID equal to the address, and non-zero collateral is recorded on the Vault struct for that address.</p>
+<p><em><strong>Closed Vault:</strong></em> a Vault that was once active, but now has zero debt and zero collateral recorded on its struct, and there is no node in the <code>SortedTroves</code> list with ID equal to the owning address.</p>
+<p><em><strong>Active collateral:</strong></em> the amount of collateral recorded on a Vault’s struct</p>
+<p><em><strong>Active debt:</strong></em> the amount of thUSD debt recorded on a Vault’s struct</p>
+<p><em><strong>Entire collateral:</strong></em> the sum of a Vault’s active collateral plus its pending collateral rewards accumulated from distributions</p>
+<p><em><strong>Entire debt:</strong></em> the sum of a Vault’s active debt plus its pending debt rewards accumulated from distributions</p>
+<p><em><strong>Individual collateralization ratio (ICR):</strong></em> a Vault's ICR is the ratio of the dollar value of its entire collateral at the current collateral:USD price, to its entire debt</p>
+<p><em><strong>Nominal collateralization ratio (nominal ICR, NICR):</strong></em> a Vault's nominal ICR is its entire collateral (in collateral) multiplied by 100e18 and divided by its entire debt.</p>
+<p><em><strong>Total active collateral:</strong></em> the sum of active collateral over all Vaults. Equal to the collateral in the ActivePool.</p>
+<p><em><strong>Total active debt:</strong></em> the sum of active debt over all Vaults. Equal to the thUSD in the ActivePool.</p>
+<p><em><strong>Total defaulted collateral:</strong></em> the total collateral in the DefaultPool</p>
+<p><em><strong>Total defaulted debt:</strong></em> the total thUSD debt in the DefaultPool</p>
+<p><em><strong>Entire system collateral:</strong></em> the sum of the collateral in the ActivePool and DefaultPool</p>
+<p><em><strong>Entire system debt:</strong></em> the sum of the debt in the ActivePool and DefaultPool</p>
+<p><em><strong>Total collateralization ratio (TCR):</strong></em> the ratio of the dollar value of the entire system collateral at the current collateral:USD price, to the entire system debt</p>
+<p><em><strong>Critical collateralization ratio (CCR):</strong></em> 150%. When the TCR is below the CCR, the system enters Recovery Mode.</p>
+<p><em><strong>Borrower:</strong></em> an externally owned account or contract that locks collateral in a Vault and issues thUSD tokens to their own address. They “borrow” thUSD tokens against their collateral.</p>
+<p><em><strong>Depositor:</strong></em> an externally owned account or contract that has assigned thUSD tokens to the Stability Pool, in order to earn returns from liquidations.</p>
+<p><em><strong>Redemption:</strong></em> the act of swapping thUSD tokens with the system, in return for an equivalent value of collateral. Any account with a thUSD token balance may redeem them, whether or not they are a borrower.</p>
+<p>When thUSD is redeemed for collateral, the collateral is always withdrawn from the lowest collateral Vaults, in ascending order of their collateralization ratio. A redeemer can not selectively target Vaults with which to swap thUSD for collateral.</p>
+<p><em><strong>Repayment:</strong></em> when a borrower sends thUSD tokens to their own Vault, reducing their debt, and increasing their collateralization ratio.</p>
+<p><em><strong>Retrieval:</strong></em> when a borrower with an active Vault withdraws some or all of their collateral from their own vault, either reducing their collateralization ratio, or closing their Vault (if they have zero debt and withdraw all their collateral)</p>
+<p><em><strong>Liquidation:</strong></em> the act of force-closing an undercollateralized Vault and redistributing its collateral and debt. When the Stability Pool is sufficiently large, the liquidated debt is offset with the Stability Pool, and the collateral distributed to depositors. If the liquidated debt can not be offset with the Pool, the system redistributes the liquidated collateral and debt directly to the active Vaults with &gt;110% collateralization ratio.</p>
+<p>Liquidation functionality is permissionless and publically available - anyone may liquidate an undercollateralized Vault, or batch liquidate Vaults in ascending order of collateralization ratio.</p>
+<p><em><strong>Collateral Surplus</strong></em>: The difference between the dollar value of a Vault's collateral, and the dollar value of its thUSD debt. In a full liquidation, this is the net gain earned by the recipients of the liquidation.</p>
+<p><em><strong>Offset:</strong></em> cancellation of liquidated debt with thUSD in the Stability Pool, and assignment of liquidated collateral to Stability Pool depositors, in proportion to their deposit.</p>
+<p><em><strong>Redistribution:</strong></em> assignment of liquidated debt and collateral directly to active Vaults, in proportion to their collateral.</p>
+<p><em><strong>Pure offset:</strong></em>  when a Vault's debt is entirely cancelled with thUSD in the Stability Pool, and all of it's liquidated collateral is assigned to Stability Providers.</p>
+<p><em><strong>Mixed offset and redistribution:</strong></em>  When the Stability Pool thUSD only covers a fraction of the liquidated Vault's debt.  This fraction of debt is cancelled with thUSD in the Stability Pool, and an equal fraction of the Vault's collateral is assigned to depositors. The remaining collateral &amp; debt is redistributed directly to active Vaults.</p>
+<p><em><strong>Gas compensation:</strong></em> A refund, in thUSD and collateral, automatically paid to the caller of a liquidation function, intended to at least cover the gas cost of the transaction. Designed to ensure that liquidators are not dissuaded by potentially high gas costs.</p>
+<h2 id="development">Development </h2>
+<p>The Threshold USD monorepo is based on Yarn's <a href="https://classic.yarnpkg.com/en/docs/workspaces/">workspaces</a> feature. You might be able to install some of the packages individually with npm, but to make all interdependent packages see each other, you'll need to use Yarn.</p>
+<p>In addition, some package scripts require Docker to be installed (Docker Desktop on Windows and Mac, Docker Engine on Linux).</p>
+<h3 id="prerequisites">Prerequisites </h3>
+<p>You'll need to install the following:</p>
+<ul>
+<li><a href="https://help.github.com/en/github/getting-started-with-github/set-up-git">Git</a> (of course)</li>
+<li><a href="https://nodejs.org/dist/latest-v12.x/">Node v12.x</a></li>
+<li><a href="https://docs.docker.com/get-docker/">Docker</a></li>
+<li><a href="https://classic.yarnpkg.com/en/docs/install">Yarn</a></li>
+</ul>
+<h4 id="making-node-gyp-work">Making node-gyp work </h4>
+<p>Threshold USD indirectly depends on some packages with native addons. To make sure these can be built, you'll have to take some additional steps. Refer to the subsection of <a href="https://github.com/nodejs/node-gyp#installation">Installation</a> in node-gyp's README that corresponds to your operating system.</p>
+<p>Note: you can skip the manual installation of node-gyp itself (<code>npm install -g node-gyp</code>), but you will need to install its prerequisites to make sure Threshold USD can be installed.</p>
+<h3 id="clone--install">Clone &amp; Install </h3>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>git clone https://github.com/threshold-usd/dev.git thresholdusd
+cd thresholdusd
+yarn
+</code></pre><h3 id="top-level-scripts">Top-level scripts </h3>
+<p>There are a number of scripts in the top-level package.json file to ease development, which you can run with yarn.</p>
+<h4 id="run-all-tests">Run all tests </h4>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>yarn test
+</code></pre><h4 id="deploy-contracts-to-a-testnet">Deploy contracts to a testnet </h4>
+<p>E.g.:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>yarn deploy --network sepolia
+</code></pre><p>Supported networks are currently: sepolia. The above command will deploy into the default channel (the one that's used by the public dev-frontend). To deploy into the internal channel instead:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>yarn deploy --network sepolia --channel internal
+</code></pre><p>You can optionally specify an explicit gas price too:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>yarn deploy --network sepolia --gas-price 20
+</code></pre><p>After a successful deployment, the addresses of the newly deployed contracts will be written to a version-controlled JSON file under <code>packages/lib-ethers/deployments/default</code>.</p>
+<p>To publish a new deployment, you must execute the above command for all of the following combinations:</p>
+<table>
+<thead>
+<tr>
+<th>Network</th>
+<th>Channel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sepolia</td>
+<td>default</td>
+</tr>
+</tbody>
+</table>
+<p>At some point in the future, we will make this process automatic. Once you're done deploying to all the networks, execute the following command:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>yarn save-live-version
+</code></pre><p>This copies the contract artifacts to a version controlled area (<code>packages/lib/live</code>) then checks that you really did deploy to all the networks. Next you need to commit and push all changed files. The repo's GitHub workflow will then build a new Docker image of the frontend interfacing with the new addresses.</p>
+<h4 id="start-a-local-blockchain-and-deploy-the-contracts">Start a local blockchain and deploy the contracts </h4>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>yarn start-dev-chain
+</code></pre><p>Starts an openethereum node in a Docker container, running the <a href="https://openethereum.github.io/wiki/Private-development-chain">private development chain</a>, then deploys the contracts to this chain.</p>
+<p>You may want to use this before starting the dev-frontend in development mode. To use the newly deployed contracts, switch MetaMask to the built-in "Localhost 8545" network.</p>
+<blockquote>
+<p>Q: How can I get collateral on the local blockchain?<br>
+A: Import this private key into MetaMask:<br>
+<code>0x4d5db4107d237df6a3d58ee5f70ae63d73d7658d4026f2eefd2f204c81682cb7</code><br>
+This account has all the collateral you'll ever need.</p>
+</blockquote>
+<p>Once you no longer need the local node, stop it with:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>yarn stop-dev-chain
+</code></pre><h4 id="start-dev-frontend-in-development-mode">Start dev-frontend in development mode </h4>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>yarn start-dev-frontend
+</code></pre><p>This will start dev-frontend in development mode on <a href="http://localhost:3000">http://localhost:3000</a>. The app will automatically be reloaded if you change a source file under <code>packages/dev-frontend</code>.</p>
+<p>If you make changes to a different package under <code>packages</code>, it is recommended to rebuild the entire project with <code>yarn prepare</code> in the root directory of the repo. This makes sure that a change in one package doesn't break another.</p>
+<p>To stop the dev-frontend running in this mode, bring up the terminal in which you've started the command and press Ctrl+C.</p>
+<h4 id="start-dev-frontend-in-demo-mode">Start dev-frontend in demo mode </h4>
+<p>This will automatically start the local blockchain, so you need to make sure that's not already running before you run the following command.</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>yarn start-demo
+</code></pre><p>This spawns a modified version of dev-frontend that ignores MetaMask, and directly uses the local blockchain node. Every time the page is reloaded (at <a href="http://localhost:3000">http://localhost:3000</a>), a new random account is created with a balance of 100 collateral. Additionally, transactions are automatically signed, so you no longer need to accept wallet confirmations. This lets you play around with Threshold USD more freely.</p>
+<p>When you no longer need the demo mode, press Ctrl+C in the terminal then run:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>yarn stop-demo
+</code></pre><h4 id="build-dev-frontend-for-production">Build dev-frontend for production </h4>
+<p>In a freshly cloned &amp; installed monorepo, or if you have only modified code inside the dev-frontend package:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>yarn build
+</code></pre><p>If you have changed something in one or more packages apart from dev-frontend, it's best to use:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>yarn rebuild
+</code></pre><p>This combines the top-level <code>prepare</code> and <code>build</code> scripts.</p>
+<p>You'll find the output in <code>packages/dev-frontend/build</code>.</p>
+<h2 id="known-issues">Known Issues </h2>
+<h3 id="temporary-and-slightly-inaccurate-tcr-calculation-within-batchliquidatetroves-in-recovery-mode">Temporary and slightly inaccurate TCR calculation within <code>batchLiquidateTroves</code> in Recovery Mode. </h3>
+<p>When liquidating a vault with <code>ICR &gt; 110%</code>, a collateral surplus remains claimable by the borrower. This collateral surplus should be excluded from subsequent TCR calculations, but within the liquidation sequence in <code>batchLiquidateTroves</code> in Recovery Mode, it is not. This results in a slight distortion to the TCR value used at each step of the liquidation sequence going forward. This distortion only persists for the duration the <code>batchLiquidateTroves</code> function call, and the TCR is again calculated correctly after the liquidation sequence ends. In most cases there is no impact at all, and when there is, the effect tends to be minor. The issue is not present at all in Normal Mode.</p>
+<p>There is a theoretical and extremely rare case where it incorrectly causes a loss for Stability Depositors instead of a gain. It relies on the stars aligning: the system must be in Recovery Mode, the TCR must be very close to the 150% boundary, a large vault must be liquidated, and the collateral price must drop by &gt;10% at exactly the right moment. No profitable exploit is possible. For more details, please see <a href="https://github.com/threshold-usd/dev/security/advisories/GHSA-xh2p-7p87-fhgh">this security advisory</a>.</p>
+<h3 id="sortedtroves-edge-cases---top-and-bottom-of-the-sorted-list">SortedTroves edge cases - top and bottom of the sorted list </h3>
+<p>When the vault is at one end of the <code>SortedTroves</code> list and adjusted such that its ICR moves further away from its neighbor, <code>findInsertPosition</code> returns unhelpful positional hints, which if used can cause the <code>adjustTrove</code> transaction to run out of gas. This is due to the fact that one of the returned addresses is in fact the address of the vault to move - however, at re-insertion, it has already been removed from the list. As such the insertion logic defaults to <code>0x0</code> for that hint address, causing the system to search for the vault starting at the opposite end of the list.</p>
+<h3 id="front-running-issues">Front-running issues </h3>
+<h4 id="loss-evasion-by-front-running-stability-pool-depositors">Loss evasion by front-running Stability Pool depositors </h4>
+<p><em>Example sequence 1): evade liquidation tx</em></p>
+<ul>
+<li>Depositor sees incoming liquidation tx that would cause them a net loss</li>
+<li>Depositor front-runs with <code>withdrawFromSP()</code> to evade the loss</li>
+</ul>
+<p><em>Example sequence 2): evade price drop</em></p>
+<ul>
+<li>Depositor sees incoming price drop tx (or just anticipates one, by reading exchange price data), that would shortly be followed by unprofitable liquidation txs</li>
+<li>Depositor front-runs with <code>withdrawFromSP()</code> to evade the loss</li>
+</ul>
+<p>Stability Pool depositors expect to make profits from liquidations which are likely to happen at a collateral ratio slightly below 110%, but well above 100%. In rare cases (flash crashes, oracle failures), vaults may be liquidated below 100% though, resulting in a net loss for stability depositors. Depositors thus have an incentive to withdraw their deposits if they anticipate liquidations below 100% (note that the exact threshold of such “unprofitable” liquidations will depend on the current Dollar price of thUSD).</p>
+<p>As long the difference between two price feed updates is &lt;10% and price stability is maintained, loss evasion situations should be rare. The percentage changes between two consecutive prices reported by Chainlink’s collateral:USD oracle has only ever come close to 10% a handful of times in the past few years.</p>
+<p>In the current implementation, deposit withdrawals are prohibited if and while there are vaults with a collateral ratio (ICR) &lt; 110% in the system. This prevents loss evasion by front-running the liquidate transaction as long as there are vaults that are liquidatable in normal mode.</p>
+<p>This solution is only partially effective since it does not prevent stability depositors from monitoring the collateral price feed and front-running oracle price update transactions that would make vaults liquidatable. Given that we expect loss-evasion opportunities to be very rare, we do not expect that a significant fraction of stability depositors would actually apply front-running strategies, which require sophistication and automation. In the unlikely event that large fraction of the depositors withdraw shortly before the liquidation of vaults at &lt;100% CR, the redistribution mechanism will still be able to absorb defaults.</p>
+<h4 id="reaping-liquidation-gains-on-the-fly">Reaping liquidation gains on the fly </h4>
+<p><em>Example sequence:</em></p>
+<ul>
+<li>User sees incoming profitable liquidation tx</li>
+<li>User front-runs it and immediately makes a deposit with <code>provideToSP()</code></li>
+<li>User earns a profit</li>
+</ul>
+<p>Front-runners could deposit funds to the Stability Pool on the fly (instead of keeping their funds in the pool) and make liquidation gains when they see a pending price update or liquidate transaction. They could even borrow the thUSD using a vault as a flash loan.</p>
+<p>Such flash deposit-liquidations would actually be beneficial (in terms of TCR) to system health and prevent redistributions, since the pool can be filled on the spot to liquidate vaults anytime, if only for the length of 1 transaction.</p>
+<h4 id="front-running-and-changing-the-order-of-vaults-as-a-dos-attack">Front-running and changing the order of vaults as a DoS attack </h4>
+<p><em>Example sequence:</em>*<br>
+-Attacker sees incoming operation(<code>openLoan()</code>, <code>redeemCollateral()</code>, etc) that would insert a vault to the sorted list<br>
+-Attacker front-runs with mass openLoan txs<br>
+-Incoming operation becomes more costly - more traversals needed for insertion</p>
+<p>It’s theoretically possible to increase the number of the vaults that need to be traversed on-chain. That is, an attacker that sees a pending borrower transaction (or redemption or liquidation transaction) could try to increase the number of traversed vaults by introducing additional vaults on the way. However, the number of vaults that an attacker can inject before the pending transaction gets mined is limited by the amount of spendable gas. Also, the total costs of making the path longer by 1 are significantly higher (gas costs of opening a vault, plus the 0.5% borrowing fee) than the costs of one extra traversal step (simply reading from storage). The attacker also needs significant capital on-hand, since the minimum debt for a vault is 2000 thUSD.</p>
+<p>In case of a redemption, the “last” vault affected by the transaction may end up being only partially redeemed from, which means that its ICR will change so that it needs to be reinserted at a different place in the sorted vault list (note that this is not the case for partial liquidations in recovery mode, which preserve the ICR). A special ICR hint therefore needs to be provided by the transaction sender for that matter, which may become incorrect if another transaction changes the order before the redemption is processed. The protocol gracefully handles this by terminating the redemption sequence at the last fully redeemed vault (see <a href="https://github.com/threshold-usd/dev#hints-for-redeemcollateral">here</a>).</p>
+<p>An attacker trying to DoS redemptions could be bypassed by redeeming an amount that exactly corresponds to the debt of the affected vault(s).</p>
+<p>Finally, this DoS could be avoided if the initial transaction avoids the public gas auction entirely and is sent direct-to-miner, via (for example) Flashbots.</p>
+<h2 id="disclaimer">Disclaimer </h2>
+<p>The content of this readme document (“Readme”) is of purely informational nature. In particular, none of the content of the Readme shall be understood as advice provided by Threshold Foundation, any Threshold USD Project Team member or other contributor to the Readme, nor does any of these persons warrant the actuality and accuracy of the Readme.</p>
+<p>Please read this Disclaimer carefully before accessing, interacting with, or using the Threshold USD Protocol software, consisting of the Threshold USD Protocol technology stack (in particular its smart contracts) as well as any other Threshold USD technology.</p>
+<p>While Threshold Foundation developed the Threshold USD Protocol Software, the Threshold USD Protocol Software runs in a fully decentralized and autonomous manner on the Ethereum network. Threshold Foundation is not involved in the operation of the Threshold USD Protocol Software nor has it any control over transactions made using its smart contracts. Further, Threshold Foundation does neither enter into any relationship with users of the Threshold USD Protocol Software. Any and all functionalities of the Threshold USD Protocol Software, including the thUSD, are of purely technical nature and there is no claim towards any private individual or legal entity in this regard.</p>
+<p>THRESHOLD FOUNDATION IS NOT LIABLE TO ANY USER FOR DAMAGES, INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE, IN CONNECTION WITH THE USE OR INABILITY TO USE THE THRESHOLD USD PROTOCOL SOFTWARE (INCLUDING BUT NOT LIMITED TO LOSS OF collateral, thUSD, LOSS OF DATA, BUSINESS INTERRUPTION, DATA BEING RENDERED INACCURATE OR OTHER LOSSES SUSTAINED BY A USER OR THIRD PARTIES AS A RESULT OF THE THRESHOLD USD PROTOCOL SOFTWARE OR A FAILURE OF THE THRESHOLD USD PROTOCOL SOFTWARE TO OPERATE WITH ANY OTHER SOFTWARE).</p>
+<p>The Threshold USD Protocol Software has been developed and published under the GNU GPL v3 open-source license, which forms an integral part of this disclaimer.</p>
+<p>THE THRESHOLD USD PROTOCOL SOFTWARE HAS BEEN PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. THE THRESHOLD USD PROTOCOL SOFTWARE IS HIGHLY EXPERIMENTAL AND ANY REAL collateral AND/OR thUSD, STAKED OR DEPOSITED TO THE THRESHOLD USD PROTOCOL SOFTWARE ARE AT RISK OF BEING LOST INDEFINITELY, WITHOUT ANY KIND OF CONSIDERATION.</p>
+<p>User is solely responsible for complying with applicable law when interacting (in particular, when using collateral, thUSD or other Token) with the Threshold USD Protocol Software whatsoever.</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
